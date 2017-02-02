@@ -1,0 +1,24 @@
+module musictoplevel(
+input logic Reset, Clk,
+
+input Run, Reset,
+input Clk,
+
+
+
+input logic  AUD_ADCDAT,
+				 AUD_DACLRCK,
+				 AUD_ADCLRCK,
+				 AUD_BCLK,
+output logic AUD_MCLK, 
+				 AUD_DACDAT, 
+				 I2C_SDAT, 
+				 I2C_SCLK,
+output logic  [31: 0] ADCDATA
+
+);
+
+
+
+
+endmodule 

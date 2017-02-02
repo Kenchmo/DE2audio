@@ -1,0 +1,4 @@
+Warning (10268): Verilog HDL information at keyboard.sv(22): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at keyboard.sv(45): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at keyboard.sv(11): object "press" differs only in case from object "Press" in the same scope
+Info (10281): Verilog HDL Declaration information at 385_ps2_keyboard.sv(4): object "Reset" differs only in case from object "reset" in the same scope

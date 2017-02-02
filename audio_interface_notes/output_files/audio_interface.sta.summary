@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Clk'
+Slack : -7.764
+TNS   : -3602.476
+
+Type  : Slow 1200mV 85C Model Setup 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -0.798
+TNS   : -2.264
+
+Type  : Slow 1200mV 85C Model Hold 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -0.304
+TNS   : -0.304
+
+Type  : Slow 1200mV 85C Model Hold 'Clk'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -0.050
+TNS   : -0.200
+
+Type  : Slow 1200mV 85C Model Removal 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : 0.361
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clk'
+Slack : -3.000
+TNS   : -1456.335
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -1.285
+TNS   : -5.140
+
+Type  : Slow 1200mV 0C Model Setup 'Clk'
+Slack : -7.052
+TNS   : -3187.731
+
+Type  : Slow 1200mV 0C Model Setup 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -0.628
+TNS   : -1.755
+
+Type  : Slow 1200mV 0C Model Hold 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -0.136
+TNS   : -0.136
+
+Type  : Slow 1200mV 0C Model Hold 'Clk'
+Slack : 0.336
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -0.102
+TNS   : -0.408
+
+Type  : Slow 1200mV 0C Model Removal 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : 0.504
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clk'
+Slack : -3.000
+TNS   : -1456.335
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -1.285
+TNS   : -5.140
+
+Type  : Fast 1200mV 0C Model Setup 'Clk'
+Slack : -3.195
+TNS   : -1180.168
+
+Type  : Fast 1200mV 0C Model Setup 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : 0.138
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -0.044
+TNS   : -0.044
+
+Type  : Fast 1200mV 0C Model Hold 'Clk'
+Slack : 0.041
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : 0.260
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : 0.320
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clk'
+Slack : -3.000
+TNS   : -1203.495
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'piano:pi|audio_interface:audio_interface_inst|i2c_counter[9]'
+Slack : -1.000
+TNS   : -4.000
+
+------------------------------------------------------------

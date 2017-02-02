@@ -1,0 +1,21 @@
+Warning (10268): Verilog HDL information at piano.sv(154): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(272): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(285): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(298): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(310): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(322): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(335): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(347): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(359): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(374): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(387): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(399): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(411): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(424): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(436): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at piano.sv(448): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at piano.sv(2): object "Run" differs only in case from object "RUN" in the same scope
+Warning (10268): Verilog HDL information at pianocontroller.sv(561): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at pianocontroller.sv(614): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at pianocontroller.sv(667): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at pianocontroller.sv(721): always construct contains both blocking and non-blocking assignments

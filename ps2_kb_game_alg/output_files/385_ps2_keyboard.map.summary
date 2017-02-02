@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed May 04 14:41:14 2016
+Quartus II 64-Bit Version : 15.0.0 Build 145 04/22/2015 SJ Full Version
+Revision Name : 385_ps2_keyboard
+Top-level Entity Name : ps2keyboard
+Family : Cyclone IV E
+Total logic elements : 132
+    Total combinational functions : 110
+    Dedicated logic registers : 80
+Total registers : 80
+Total pins : 19
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

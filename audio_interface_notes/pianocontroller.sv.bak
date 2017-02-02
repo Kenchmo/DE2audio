@@ -1,0 +1,66 @@
+module pianocontroller(
+input logic Reset_h, Clk,
+input logic Run_start,// Run_effect, Run_end,
+
+output logic SW6, SW5, SW4, SW3, SW2, SW1, SW0,
+output logic SW14, SW13, SW12, SW11, SW10, SW9, SW8, SW7,
+);
+
+logic DONE;
+
+enum logic [2:0]{
+
+Sleep,
+START_MUSIC,
+;//EFFECT_MUSIC,
+//END_MUSIC,
+
+} music_state, music_next_state;
+
+
+always_ff @ (posedge Clk) begin
+	if(Reset_h)
+		music_state <= Sleep;
+	else
+		music_state <= music_next_state;
+end
+
+
+
+
+always_comb begin
+	music_next_state = music_state;
+	unique case(music_state)
+	Sleep:
+		music_next_state = ;
+	WAIT:
+		if(Run_h)
+			next_state = RUN;
+	RUN:
+	   if(~Run_h)
+			next_state = RUN_2;
+	RUN_2:
+		if(INIT_FINISH_sig)
+			next_state = SEND_DATA;
+	SEND_DATA:
+		if(data_over_sig)
+			next_state = SEND_DATA_2;
+	SEND_DATA_2:
+		if(data_over_sig)
+		   next_state = SEND_DATA;
+   endcase
+		
+	
+end
+
+
+
+
+
+
+
+
+
+
+
+end module 

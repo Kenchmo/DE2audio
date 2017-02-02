@@ -1,0 +1,66 @@
+module control(
+input logic Clk,
+input logic INIT_FINISH,
+input logic Reset,
+input logic data_over,
+
+
+output logic [15:0] LDATA, RDATA
+output logic INIT 
+);
+
+
+
+
+
+enum logic [4:0]{
+sleep,
+start,
+DAC} curr_state, next_state;
+
+always_ff @(posedge Clk)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+endmodule
+
+
+		LDATA, RDATA	:      IN std_logic_vector(15 downto 0); -- parallel external data inputs
+		clk, Reset, INIT : IN std_logic; 
+		INIT_FINISH :				OUT std_logic;
+		adc_full :			OUT std_logic;
+		data_over :          OUT std_logic; -- sample sync pulse
+		AUD_MCLK :             OUT std_logic; -- Codec master clock OUTPUT
+		AUD_BCLK :             IN std_logic; -- Digital Audio bit clock
+		AUD_ADCDAT :			IN std_logic;
+		AUD_DACDAT :           OUT std_logic; -- DAC data line
+		AUD_DACLRCK, AUD_ADCLRCK :          IN std_logic; -- DAC data left/right select
+		I2C_SDAT :             OUT std_logic; -- serial interface data line
+		I2C_SCLK :             OUT std_logic;  -- serial interface clock
+		ADCDATA : 				OUT std_logic_vector(31 downto 0)

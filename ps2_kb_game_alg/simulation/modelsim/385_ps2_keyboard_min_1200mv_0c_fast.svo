@@ -1,0 +1,4233 @@
+// Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus II License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 15.0.0 Build 145 04/22/2015 SJ Full Version"
+
+// DATE "05/04/2016 14:42:06"
+
+// 
+// Device: Altera EP4CE115F29C7 Package FBGA780
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (SystemVerilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module ps2keyboard (
+	PS2_CLK,
+	PS2_DAT,
+	Clk,
+	Reset,
+	LDEG8,
+	HU,
+	HL);
+input 	PS2_CLK;
+input 	PS2_DAT;
+input 	Clk;
+input 	Reset;
+output 	LDEG8;
+output 	[6:0] HU;
+output 	[6:0] HL;
+
+// Design Ports Information
+// LDEG8	=>  Location: PIN_F17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HU[0]	=>  Location: PIN_AD17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HU[1]	=>  Location: PIN_AE17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HU[2]	=>  Location: PIN_AG17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HU[3]	=>  Location: PIN_AH17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HU[4]	=>  Location: PIN_AF17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HU[5]	=>  Location: PIN_AG18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HU[6]	=>  Location: PIN_AA14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HL[0]	=>  Location: PIN_AA17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HL[1]	=>  Location: PIN_AB16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HL[2]	=>  Location: PIN_AA16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HL[3]	=>  Location: PIN_AB17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HL[4]	=>  Location: PIN_AB15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HL[5]	=>  Location: PIN_AA15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// HL[6]	=>  Location: PIN_AC17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Clk	=>  Location: PIN_Y2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PS2_CLK	=>  Location: PIN_G6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Reset	=>  Location: PIN_M23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PS2_DAT	=>  Location: PIN_H5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+// synopsys translate_off
+initial $sdf_annotate("385_ps2_keyboard_min_1200mv_0c_v_fast.sdo");
+// synopsys translate_on
+
+wire \LDEG8~output_o ;
+wire \HU[0]~output_o ;
+wire \HU[1]~output_o ;
+wire \HU[2]~output_o ;
+wire \HU[3]~output_o ;
+wire \HU[4]~output_o ;
+wire \HU[5]~output_o ;
+wire \HU[6]~output_o ;
+wire \HL[0]~output_o ;
+wire \HL[1]~output_o ;
+wire \HL[2]~output_o ;
+wire \HL[3]~output_o ;
+wire \HL[4]~output_o ;
+wire \HL[5]~output_o ;
+wire \HL[6]~output_o ;
+wire \Clk~input_o ;
+wire \Clk~inputclkctrl_outclk ;
+wire \PS2_CLK~input_o ;
+wire \PS2_DAT~input_o ;
+wire \Reset~input_o ;
+wire \keyboard_inst|reg_B|Data_Out[9]~feeder_combout ;
+wire \keyboard_inst|reg_B|Data_Out[3]~feeder_combout ;
+wire \keyboard_inst|reg_B|Data_Out[0]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[10]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[9]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[8]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[7]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[6]~feeder_combout ;
+wire \keyboard_inst|Equal6~0_combout ;
+wire \keyboard_inst|reg_A|Data_Out[5]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[4]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[3]~feeder_combout ;
+wire \keyboard_inst|reg_A|Data_Out[2]~feeder_combout ;
+wire \keyboard_inst|Equal6~1_combout ;
+wire \keyboard_inst|Equal6~2_combout ;
+wire \keyboard_inst|Count[0]~5_combout ;
+wire \keyboard_inst|Equal2~0_combout ;
+wire \keyboard_inst|always1~0_combout ;
+wire \keyboard_inst|Add0~0_combout ;
+wire \keyboard_inst|Add0~1 ;
+wire \keyboard_inst|Add0~2_combout ;
+wire \keyboard_inst|Add0~3 ;
+wire \keyboard_inst|Add0~4_combout ;
+wire \keyboard_inst|Add0~5 ;
+wire \keyboard_inst|Add0~6_combout ;
+wire \keyboard_inst|Add0~7 ;
+wire \keyboard_inst|Add0~8_combout ;
+wire \keyboard_inst|Add0~9 ;
+wire \keyboard_inst|Add0~10_combout ;
+wire \keyboard_inst|Equal0~1_combout ;
+wire \keyboard_inst|Add0~11 ;
+wire \keyboard_inst|Add0~12_combout ;
+wire \keyboard_inst|Add0~13 ;
+wire \keyboard_inst|Add0~14_combout ;
+wire \keyboard_inst|Add0~15 ;
+wire \keyboard_inst|Add0~16_combout ;
+wire \keyboard_inst|Add0~17 ;
+wire \keyboard_inst|Add0~18_combout ;
+wire \keyboard_inst|counter~0_combout ;
+wire \keyboard_inst|Equal0~0_combout ;
+wire \keyboard_inst|Equal0~2_combout ;
+wire \keyboard_inst|enable~q ;
+wire \keyboard_inst|Dreg_instance1|Q~q ;
+wire \keyboard_inst|Dreg_instance2|Q~q ;
+wire \keyboard_inst|Count[0]~7_combout ;
+wire \keyboard_inst|Count[0]~6 ;
+wire \keyboard_inst|Count[1]~8_combout ;
+wire \keyboard_inst|Count[1]~9 ;
+wire \keyboard_inst|Count[2]~10_combout ;
+wire \keyboard_inst|Count[2]~11 ;
+wire \keyboard_inst|Count[3]~12_combout ;
+wire \keyboard_inst|Count[3]~13 ;
+wire \keyboard_inst|Count[4]~14_combout ;
+wire \keyboard_inst|Equal2~1_combout ;
+wire \keyboard_inst|Typematic_Keycode~8_combout ;
+wire \keyboard_inst|Typematic_Keycode[7]~0_combout ;
+wire \keyboard_inst|Typematic_Keycode[7]~1_combout ;
+wire \keyboard_inst|Typematic_Keycode[7]~3_combout ;
+wire \keyboard_inst|Typematic_Keycode~7_combout ;
+wire \keyboard_inst|Typematic_Keycode[5]~feeder_combout ;
+wire \keyboard_inst|Equal5~2_combout ;
+wire \keyboard_inst|Typematic_Keycode~6_combout ;
+wire \keyboard_inst|Typematic_Keycode~5_combout ;
+wire \keyboard_inst|Equal5~1_combout ;
+wire \keyboard_inst|Typematic_Keycode~4_combout ;
+wire \keyboard_inst|Typematic_Keycode~2_combout ;
+wire \keyboard_inst|Equal5~0_combout ;
+wire \keyboard_inst|Typematic_Keycode~9_combout ;
+wire \keyboard_inst|Typematic_Keycode~10_combout ;
+wire \keyboard_inst|Typematic_Keycode[7]~feeder_combout ;
+wire \keyboard_inst|Equal5~3_combout ;
+wire \keyboard_inst|Equal5~4_combout ;
+wire \keyboard_inst|Data[6]~0_combout ;
+wire \keyboard_inst|Data~4_combout ;
+wire \keyboard_inst|Add1~0_combout ;
+wire \keyboard_inst|refresh~8_combout ;
+wire \keyboard_inst|Add1~1 ;
+wire \keyboard_inst|Add1~2_combout ;
+wire \keyboard_inst|Add1~3 ;
+wire \keyboard_inst|Add1~4_combout ;
+wire \keyboard_inst|refresh~7_combout ;
+wire \keyboard_inst|Add1~5 ;
+wire \keyboard_inst|Add1~6_combout ;
+wire \keyboard_inst|Add1~7 ;
+wire \keyboard_inst|Add1~8_combout ;
+wire \keyboard_inst|Add1~9 ;
+wire \keyboard_inst|Add1~10_combout ;
+wire \keyboard_inst|Add1~11 ;
+wire \keyboard_inst|Add1~12_combout ;
+wire \keyboard_inst|Add1~13 ;
+wire \keyboard_inst|Add1~14_combout ;
+wire \keyboard_inst|Add1~15 ;
+wire \keyboard_inst|Add1~16_combout ;
+wire \keyboard_inst|Add1~17 ;
+wire \keyboard_inst|Add1~18_combout ;
+wire \keyboard_inst|Equal1~5_combout ;
+wire \keyboard_inst|Equal1~7_combout ;
+wire \keyboard_inst|Equal1~6_combout ;
+wire \keyboard_inst|Add1~19 ;
+wire \keyboard_inst|Add1~20_combout ;
+wire \keyboard_inst|refresh~6_combout ;
+wire \keyboard_inst|Add1~21 ;
+wire \keyboard_inst|Add1~22_combout ;
+wire \keyboard_inst|Add1~23 ;
+wire \keyboard_inst|Add1~24_combout ;
+wire \keyboard_inst|Add1~25 ;
+wire \keyboard_inst|Add1~26_combout ;
+wire \keyboard_inst|refresh~5_combout ;
+wire \keyboard_inst|Add1~27 ;
+wire \keyboard_inst|Add1~28_combout ;
+wire \keyboard_inst|Add1~29 ;
+wire \keyboard_inst|Add1~30_combout ;
+wire \keyboard_inst|Add1~31 ;
+wire \keyboard_inst|Add1~32_combout ;
+wire \keyboard_inst|Add1~33 ;
+wire \keyboard_inst|Add1~34_combout ;
+wire \keyboard_inst|Add1~35 ;
+wire \keyboard_inst|Add1~36_combout ;
+wire \keyboard_inst|refresh~4_combout ;
+wire \keyboard_inst|Add1~37 ;
+wire \keyboard_inst|Add1~38_combout ;
+wire \keyboard_inst|Add1~39 ;
+wire \keyboard_inst|Add1~40_combout ;
+wire \keyboard_inst|refresh~3_combout ;
+wire \keyboard_inst|Add1~41 ;
+wire \keyboard_inst|Add1~42_combout ;
+wire \keyboard_inst|refresh~2_combout ;
+wire \keyboard_inst|Equal1~1_combout ;
+wire \keyboard_inst|Add1~43 ;
+wire \keyboard_inst|Add1~44_combout ;
+wire \keyboard_inst|refresh~1_combout ;
+wire \keyboard_inst|Add1~45 ;
+wire \keyboard_inst|Add1~46_combout ;
+wire \keyboard_inst|refresh~0_combout ;
+wire \keyboard_inst|Add1~47 ;
+wire \keyboard_inst|Add1~48_combout ;
+wire \keyboard_inst|Add1~49 ;
+wire \keyboard_inst|Add1~50_combout ;
+wire \keyboard_inst|Equal1~0_combout ;
+wire \keyboard_inst|Equal1~2_combout ;
+wire \keyboard_inst|Equal1~3_combout ;
+wire \keyboard_inst|Equal1~4_combout ;
+wire \keyboard_inst|Equal1~8_combout ;
+wire \keyboard_inst|Data[6]~2_combout ;
+wire \keyboard_inst|Data~3_combout ;
+wire \keyboard_inst|Data~5_combout ;
+wire \keyboard_inst|Data~1_combout ;
+wire \h1|WideOr6~0_combout ;
+wire \h1|WideOr5~0_combout ;
+wire \h1|WideOr4~0_combout ;
+wire \h1|WideOr3~0_combout ;
+wire \h1|WideOr2~0_combout ;
+wire \h1|WideOr1~0_combout ;
+wire \h1|WideOr0~0_combout ;
+wire \keyboard_inst|Data~9_combout ;
+wire \keyboard_inst|Data~7_combout ;
+wire \keyboard_inst|Data~8_combout ;
+wire \keyboard_inst|Data~6_combout ;
+wire \h2|WideOr6~0_combout ;
+wire \h2|WideOr5~0_combout ;
+wire \h2|WideOr4~0_combout ;
+wire \h2|WideOr3~0_combout ;
+wire \h2|WideOr2~0_combout ;
+wire \h2|WideOr1~0_combout ;
+wire \h2|WideOr0~0_combout ;
+wire [4:0] \keyboard_inst|Count ;
+wire [7:0] \keyboard_inst|Data ;
+wire [9:0] \keyboard_inst|counter ;
+wire [10:0] \keyboard_inst|reg_B|Data_Out ;
+wire [7:0] \keyboard_inst|Typematic_Keycode ;
+wire [10:0] \keyboard_inst|reg_A|Data_Out ;
+wire [25:0] \keyboard_inst|refresh ;
+
+
+// Location: IOOBUF_X67_Y73_N16
+cycloneive_io_obuf \LDEG8~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\LDEG8~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \LDEG8~output .bus_hold = "false";
+defparam \LDEG8~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X74_Y0_N16
+cycloneive_io_obuf \HU[0]~output (
+	.i(\h1|WideOr6~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HU[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HU[0]~output .bus_hold = "false";
+defparam \HU[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X67_Y0_N9
+cycloneive_io_obuf \HU[1]~output (
+	.i(\h1|WideOr5~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HU[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HU[1]~output .bus_hold = "false";
+defparam \HU[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X62_Y0_N23
+cycloneive_io_obuf \HU[2]~output (
+	.i(\h1|WideOr4~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HU[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HU[2]~output .bus_hold = "false";
+defparam \HU[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X62_Y0_N16
+cycloneive_io_obuf \HU[3]~output (
+	.i(\h1|WideOr3~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HU[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HU[3]~output .bus_hold = "false";
+defparam \HU[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X67_Y0_N2
+cycloneive_io_obuf \HU[4]~output (
+	.i(\h1|WideOr2~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HU[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HU[4]~output .bus_hold = "false";
+defparam \HU[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X69_Y0_N9
+cycloneive_io_obuf \HU[5]~output (
+	.i(\h1|WideOr1~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HU[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HU[5]~output .bus_hold = "false";
+defparam \HU[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X54_Y0_N23
+cycloneive_io_obuf \HU[6]~output (
+	.i(!\h1|WideOr0~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HU[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HU[6]~output .bus_hold = "false";
+defparam \HU[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y0_N23
+cycloneive_io_obuf \HL[0]~output (
+	.i(\h2|WideOr6~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HL[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HL[0]~output .bus_hold = "false";
+defparam \HL[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X65_Y0_N2
+cycloneive_io_obuf \HL[1]~output (
+	.i(\h2|WideOr5~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HL[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HL[1]~output .bus_hold = "false";
+defparam \HL[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X65_Y0_N9
+cycloneive_io_obuf \HL[2]~output (
+	.i(\h2|WideOr4~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HL[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HL[2]~output .bus_hold = "false";
+defparam \HL[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y0_N16
+cycloneive_io_obuf \HL[3]~output (
+	.i(\h2|WideOr3~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HL[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HL[3]~output .bus_hold = "false";
+defparam \HL[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X67_Y0_N16
+cycloneive_io_obuf \HL[4]~output (
+	.i(\h2|WideOr2~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HL[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HL[4]~output .bus_hold = "false";
+defparam \HL[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X67_Y0_N23
+cycloneive_io_obuf \HL[5]~output (
+	.i(\h2|WideOr1~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HL[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HL[5]~output .bus_hold = "false";
+defparam \HL[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X74_Y0_N23
+cycloneive_io_obuf \HL[6]~output (
+	.i(!\h2|WideOr0~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\HL[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \HL[6]~output .bus_hold = "false";
+defparam \HL[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y36_N15
+cycloneive_io_ibuf \Clk~input (
+	.i(Clk),
+	.ibar(gnd),
+	.o(\Clk~input_o ));
+// synopsys translate_off
+defparam \Clk~input .bus_hold = "false";
+defparam \Clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G4
+cycloneive_clkctrl \Clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\Clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\Clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \Clk~inputclkctrl .clock_type = "global clock";
+defparam \Clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y67_N15
+cycloneive_io_ibuf \PS2_CLK~input (
+	.i(PS2_CLK),
+	.ibar(gnd),
+	.o(\PS2_CLK~input_o ));
+// synopsys translate_off
+defparam \PS2_CLK~input .bus_hold = "false";
+defparam \PS2_CLK~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y59_N22
+cycloneive_io_ibuf \PS2_DAT~input (
+	.i(PS2_DAT),
+	.ibar(gnd),
+	.o(\PS2_DAT~input_o ));
+// synopsys translate_off
+defparam \PS2_DAT~input .bus_hold = "false";
+defparam \PS2_DAT~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y40_N8
+cycloneive_io_ibuf \Reset~input (
+	.i(Reset),
+	.ibar(gnd),
+	.o(\Reset~input_o ));
+// synopsys translate_off
+defparam \Reset~input .bus_hold = "false";
+defparam \Reset~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N19
+dffeas \keyboard_inst|reg_B|Data_Out[10] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\PS2_DAT~input_o ),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [10]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[10] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[10] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N26
+cycloneive_lcell_comb \keyboard_inst|reg_B|Data_Out[9]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_B|Data_Out[9]~feeder_combout  = \keyboard_inst|reg_B|Data_Out [10]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_B|Data_Out [10]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_B|Data_Out[9]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[9]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_B|Data_Out[9]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N27
+dffeas \keyboard_inst|reg_B|Data_Out[9] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_B|Data_Out[9]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[9] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N5
+dffeas \keyboard_inst|reg_B|Data_Out[8] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_inst|reg_B|Data_Out [9]),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[8] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N15
+dffeas \keyboard_inst|reg_B|Data_Out[7] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_inst|reg_B|Data_Out [8]),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[7] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N23
+dffeas \keyboard_inst|reg_B|Data_Out[6] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_inst|reg_B|Data_Out [7]),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[6] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N31
+dffeas \keyboard_inst|reg_B|Data_Out[5] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_inst|reg_B|Data_Out [6]),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[5] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N1
+dffeas \keyboard_inst|reg_B|Data_Out[4] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_inst|reg_B|Data_Out [5]),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[4] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N8
+cycloneive_lcell_comb \keyboard_inst|reg_B|Data_Out[3]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_B|Data_Out[3]~feeder_combout  = \keyboard_inst|reg_B|Data_Out [4]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_B|Data_Out [4]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_B|Data_Out[3]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[3]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_B|Data_Out[3]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N9
+dffeas \keyboard_inst|reg_B|Data_Out[3] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_B|Data_Out[3]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[3] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N7
+dffeas \keyboard_inst|reg_B|Data_Out[2] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_inst|reg_B|Data_Out [3]),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[2] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N29
+dffeas \keyboard_inst|reg_B|Data_Out[1] (
+	.clk(\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_inst|reg_B|Data_Out [2]),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[1] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N30
+cycloneive_lcell_comb \keyboard_inst|reg_B|Data_Out[0]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_B|Data_Out[0]~feeder_combout  = \keyboard_inst|reg_B|Data_Out [1]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_B|Data_Out [1]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_B|Data_Out[0]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[0]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_B|Data_Out[0]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N31
+dffeas \keyboard_inst|reg_B|Data_Out[0] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_B|Data_Out[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_B|Data_Out [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_B|Data_Out[0] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_B|Data_Out[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N24
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[10]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[10]~feeder_combout  = \keyboard_inst|reg_B|Data_Out [0]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|reg_B|Data_Out [0]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[10]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[10]~feeder .lut_mask = 16'hF0F0;
+defparam \keyboard_inst|reg_A|Data_Out[10]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N25
+dffeas \keyboard_inst|reg_A|Data_Out[10] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[10]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [10]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[10] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[10] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N18
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[9]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[9]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [10]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_A|Data_Out [10]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[9]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[9]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_A|Data_Out[9]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N19
+dffeas \keyboard_inst|reg_A|Data_Out[9] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[9]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[9] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N12
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[8]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[8]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [9]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_A|Data_Out [9]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[8]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[8]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_A|Data_Out[8]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N13
+dffeas \keyboard_inst|reg_A|Data_Out[8] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[8]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[8] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N2
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[7]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[7]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [8]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_A|Data_Out [8]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[7]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[7]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_A|Data_Out[7]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N3
+dffeas \keyboard_inst|reg_A|Data_Out[7] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[7]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[7] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N8
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[6]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[6]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [7]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_A|Data_Out [7]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[6]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[6]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_A|Data_Out[6]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N9
+dffeas \keyboard_inst|reg_A|Data_Out[6] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[6]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[6] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N26
+cycloneive_lcell_comb \keyboard_inst|Equal6~0 (
+// Equation(s):
+// \keyboard_inst|Equal6~0_combout  = (\keyboard_inst|reg_A|Data_Out [8] & (\keyboard_inst|reg_A|Data_Out [9] & (\keyboard_inst|reg_A|Data_Out [6] & \keyboard_inst|reg_A|Data_Out [7])))
+
+	.dataa(\keyboard_inst|reg_A|Data_Out [8]),
+	.datab(\keyboard_inst|reg_A|Data_Out [9]),
+	.datac(\keyboard_inst|reg_A|Data_Out [6]),
+	.datad(\keyboard_inst|reg_A|Data_Out [7]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal6~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal6~0 .lut_mask = 16'h8000;
+defparam \keyboard_inst|Equal6~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N28
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[5]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[5]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [6]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|reg_A|Data_Out [6]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[5]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[5]~feeder .lut_mask = 16'hF0F0;
+defparam \keyboard_inst|reg_A|Data_Out[5]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N29
+dffeas \keyboard_inst|reg_A|Data_Out[5] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[5]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[5] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N22
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[4]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[4]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [5]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_A|Data_Out [5]),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[4]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[4]~feeder .lut_mask = 16'hFF00;
+defparam \keyboard_inst|reg_A|Data_Out[4]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N23
+dffeas \keyboard_inst|reg_A|Data_Out[4] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[4]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[4] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N4
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[3]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[3]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [4]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|reg_A|Data_Out [4]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[3]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[3]~feeder .lut_mask = 16'hF0F0;
+defparam \keyboard_inst|reg_A|Data_Out[3]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N5
+dffeas \keyboard_inst|reg_A|Data_Out[3] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[3]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[3] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N10
+cycloneive_lcell_comb \keyboard_inst|reg_A|Data_Out[2]~feeder (
+// Equation(s):
+// \keyboard_inst|reg_A|Data_Out[2]~feeder_combout  = \keyboard_inst|reg_A|Data_Out [3]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|reg_A|Data_Out [3]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|reg_A|Data_Out[2]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[2]~feeder .lut_mask = 16'hF0F0;
+defparam \keyboard_inst|reg_A|Data_Out[2]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y67_N11
+dffeas \keyboard_inst|reg_A|Data_Out[2] (
+	.clk(\PS2_CLK~input_o ),
+	.d(\keyboard_inst|reg_A|Data_Out[2]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|reg_A|Data_Out [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|reg_A|Data_Out[2] .is_wysiwyg = "true";
+defparam \keyboard_inst|reg_A|Data_Out[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N0
+cycloneive_lcell_comb \keyboard_inst|Equal6~1 (
+// Equation(s):
+// \keyboard_inst|Equal6~1_combout  = (!\keyboard_inst|reg_A|Data_Out [2] & (!\keyboard_inst|reg_A|Data_Out [3] & (!\keyboard_inst|reg_A|Data_Out [4] & !\keyboard_inst|reg_A|Data_Out [5])))
+
+	.dataa(\keyboard_inst|reg_A|Data_Out [2]),
+	.datab(\keyboard_inst|reg_A|Data_Out [3]),
+	.datac(\keyboard_inst|reg_A|Data_Out [4]),
+	.datad(\keyboard_inst|reg_A|Data_Out [5]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal6~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal6~1 .lut_mask = 16'h0001;
+defparam \keyboard_inst|Equal6~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N6
+cycloneive_lcell_comb \keyboard_inst|Equal6~2 (
+// Equation(s):
+// \keyboard_inst|Equal6~2_combout  = (\keyboard_inst|Equal6~0_combout  & \keyboard_inst|Equal6~1_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|Equal6~0_combout ),
+	.datad(\keyboard_inst|Equal6~1_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal6~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal6~2 .lut_mask = 16'hF000;
+defparam \keyboard_inst|Equal6~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y66_N6
+cycloneive_lcell_comb \keyboard_inst|Count[0]~5 (
+// Equation(s):
+// \keyboard_inst|Count[0]~5_combout  = \keyboard_inst|Count [0] $ (VCC)
+// \keyboard_inst|Count[0]~6  = CARRY(\keyboard_inst|Count [0])
+
+	.dataa(\keyboard_inst|Count [0]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\keyboard_inst|Count[0]~5_combout ),
+	.cout(\keyboard_inst|Count[0]~6 ));
+// synopsys translate_off
+defparam \keyboard_inst|Count[0]~5 .lut_mask = 16'h55AA;
+defparam \keyboard_inst|Count[0]~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y66_N24
+cycloneive_lcell_comb \keyboard_inst|Equal2~0 (
+// Equation(s):
+// \keyboard_inst|Equal2~0_combout  = (\keyboard_inst|Count [3] & (\keyboard_inst|Count [1] & (\keyboard_inst|Count [0] & !\keyboard_inst|Count [2])))
+
+	.dataa(\keyboard_inst|Count [3]),
+	.datab(\keyboard_inst|Count [1]),
+	.datac(\keyboard_inst|Count [0]),
+	.datad(\keyboard_inst|Count [2]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal2~0 .lut_mask = 16'h0080;
+defparam \keyboard_inst|Equal2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N0
+cycloneive_lcell_comb \keyboard_inst|always1~0 (
+// Equation(s):
+// \keyboard_inst|always1~0_combout  = ((!\keyboard_inst|Count [4] & \keyboard_inst|Equal2~0_combout )) # (!\Reset~input_o )
+
+	.dataa(\Reset~input_o ),
+	.datab(\keyboard_inst|Count [4]),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal2~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|always1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|always1~0 .lut_mask = 16'h7755;
+defparam \keyboard_inst|always1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N6
+cycloneive_lcell_comb \keyboard_inst|Add0~0 (
+// Equation(s):
+// \keyboard_inst|Add0~0_combout  = \keyboard_inst|counter [0] $ (VCC)
+// \keyboard_inst|Add0~1  = CARRY(\keyboard_inst|counter [0])
+
+	.dataa(\keyboard_inst|counter [0]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\keyboard_inst|Add0~0_combout ),
+	.cout(\keyboard_inst|Add0~1 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~0 .lut_mask = 16'h55AA;
+defparam \keyboard_inst|Add0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N7
+dffeas \keyboard_inst|counter[0] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~0_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[0] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N8
+cycloneive_lcell_comb \keyboard_inst|Add0~2 (
+// Equation(s):
+// \keyboard_inst|Add0~2_combout  = (\keyboard_inst|counter [1] & (!\keyboard_inst|Add0~1 )) # (!\keyboard_inst|counter [1] & ((\keyboard_inst|Add0~1 ) # (GND)))
+// \keyboard_inst|Add0~3  = CARRY((!\keyboard_inst|Add0~1 ) # (!\keyboard_inst|counter [1]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|counter [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~1 ),
+	.combout(\keyboard_inst|Add0~2_combout ),
+	.cout(\keyboard_inst|Add0~3 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~2 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add0~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N9
+dffeas \keyboard_inst|counter[1] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~2_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[1] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N10
+cycloneive_lcell_comb \keyboard_inst|Add0~4 (
+// Equation(s):
+// \keyboard_inst|Add0~4_combout  = (\keyboard_inst|counter [2] & (\keyboard_inst|Add0~3  $ (GND))) # (!\keyboard_inst|counter [2] & (!\keyboard_inst|Add0~3  & VCC))
+// \keyboard_inst|Add0~5  = CARRY((\keyboard_inst|counter [2] & !\keyboard_inst|Add0~3 ))
+
+	.dataa(\keyboard_inst|counter [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~3 ),
+	.combout(\keyboard_inst|Add0~4_combout ),
+	.cout(\keyboard_inst|Add0~5 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~4 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Add0~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N11
+dffeas \keyboard_inst|counter[2] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~4_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[2] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N12
+cycloneive_lcell_comb \keyboard_inst|Add0~6 (
+// Equation(s):
+// \keyboard_inst|Add0~6_combout  = (\keyboard_inst|counter [3] & (!\keyboard_inst|Add0~5 )) # (!\keyboard_inst|counter [3] & ((\keyboard_inst|Add0~5 ) # (GND)))
+// \keyboard_inst|Add0~7  = CARRY((!\keyboard_inst|Add0~5 ) # (!\keyboard_inst|counter [3]))
+
+	.dataa(\keyboard_inst|counter [3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~5 ),
+	.combout(\keyboard_inst|Add0~6_combout ),
+	.cout(\keyboard_inst|Add0~7 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~6 .lut_mask = 16'h5A5F;
+defparam \keyboard_inst|Add0~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N13
+dffeas \keyboard_inst|counter[3] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~6_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[3] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N14
+cycloneive_lcell_comb \keyboard_inst|Add0~8 (
+// Equation(s):
+// \keyboard_inst|Add0~8_combout  = (\keyboard_inst|counter [4] & (\keyboard_inst|Add0~7  $ (GND))) # (!\keyboard_inst|counter [4] & (!\keyboard_inst|Add0~7  & VCC))
+// \keyboard_inst|Add0~9  = CARRY((\keyboard_inst|counter [4] & !\keyboard_inst|Add0~7 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|counter [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~7 ),
+	.combout(\keyboard_inst|Add0~8_combout ),
+	.cout(\keyboard_inst|Add0~9 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~8 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add0~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N15
+dffeas \keyboard_inst|counter[4] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~8_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[4] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N16
+cycloneive_lcell_comb \keyboard_inst|Add0~10 (
+// Equation(s):
+// \keyboard_inst|Add0~10_combout  = (\keyboard_inst|counter [5] & (!\keyboard_inst|Add0~9 )) # (!\keyboard_inst|counter [5] & ((\keyboard_inst|Add0~9 ) # (GND)))
+// \keyboard_inst|Add0~11  = CARRY((!\keyboard_inst|Add0~9 ) # (!\keyboard_inst|counter [5]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|counter [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~9 ),
+	.combout(\keyboard_inst|Add0~10_combout ),
+	.cout(\keyboard_inst|Add0~11 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~10 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add0~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N17
+dffeas \keyboard_inst|counter[5] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~10_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[5] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N30
+cycloneive_lcell_comb \keyboard_inst|Equal0~1 (
+// Equation(s):
+// \keyboard_inst|Equal0~1_combout  = (\keyboard_inst|counter [3] & (\keyboard_inst|counter [5] & (\keyboard_inst|counter [4] & \keyboard_inst|counter [2])))
+
+	.dataa(\keyboard_inst|counter [3]),
+	.datab(\keyboard_inst|counter [5]),
+	.datac(\keyboard_inst|counter [4]),
+	.datad(\keyboard_inst|counter [2]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal0~1 .lut_mask = 16'h8000;
+defparam \keyboard_inst|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N18
+cycloneive_lcell_comb \keyboard_inst|Add0~12 (
+// Equation(s):
+// \keyboard_inst|Add0~12_combout  = (\keyboard_inst|counter [6] & (\keyboard_inst|Add0~11  $ (GND))) # (!\keyboard_inst|counter [6] & (!\keyboard_inst|Add0~11  & VCC))
+// \keyboard_inst|Add0~13  = CARRY((\keyboard_inst|counter [6] & !\keyboard_inst|Add0~11 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|counter [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~11 ),
+	.combout(\keyboard_inst|Add0~12_combout ),
+	.cout(\keyboard_inst|Add0~13 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~12 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add0~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N19
+dffeas \keyboard_inst|counter[6] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~12_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[6] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N20
+cycloneive_lcell_comb \keyboard_inst|Add0~14 (
+// Equation(s):
+// \keyboard_inst|Add0~14_combout  = (\keyboard_inst|counter [7] & (!\keyboard_inst|Add0~13 )) # (!\keyboard_inst|counter [7] & ((\keyboard_inst|Add0~13 ) # (GND)))
+// \keyboard_inst|Add0~15  = CARRY((!\keyboard_inst|Add0~13 ) # (!\keyboard_inst|counter [7]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|counter [7]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~13 ),
+	.combout(\keyboard_inst|Add0~14_combout ),
+	.cout(\keyboard_inst|Add0~15 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~14 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add0~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N21
+dffeas \keyboard_inst|counter[7] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~14_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[7] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N22
+cycloneive_lcell_comb \keyboard_inst|Add0~16 (
+// Equation(s):
+// \keyboard_inst|Add0~16_combout  = (\keyboard_inst|counter [8] & (\keyboard_inst|Add0~15  $ (GND))) # (!\keyboard_inst|counter [8] & (!\keyboard_inst|Add0~15  & VCC))
+// \keyboard_inst|Add0~17  = CARRY((\keyboard_inst|counter [8] & !\keyboard_inst|Add0~15 ))
+
+	.dataa(\keyboard_inst|counter [8]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add0~15 ),
+	.combout(\keyboard_inst|Add0~16_combout ),
+	.cout(\keyboard_inst|Add0~17 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add0~16 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Add0~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N23
+dffeas \keyboard_inst|counter[8] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add0~16_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[8] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N24
+cycloneive_lcell_comb \keyboard_inst|Add0~18 (
+// Equation(s):
+// \keyboard_inst|Add0~18_combout  = \keyboard_inst|counter [9] $ (\keyboard_inst|Add0~17 )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|counter [9]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\keyboard_inst|Add0~17 ),
+	.combout(\keyboard_inst|Add0~18_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Add0~18 .lut_mask = 16'h3C3C;
+defparam \keyboard_inst|Add0~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N4
+cycloneive_lcell_comb \keyboard_inst|counter~0 (
+// Equation(s):
+// \keyboard_inst|counter~0_combout  = (\keyboard_inst|Equal0~2_combout  & \keyboard_inst|Add0~18_combout )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Equal0~2_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Add0~18_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|counter~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|counter~0 .lut_mask = 16'hCC00;
+defparam \keyboard_inst|counter~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N5
+dffeas \keyboard_inst|counter[9] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|counter~0_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|counter [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|counter[9] .is_wysiwyg = "true";
+defparam \keyboard_inst|counter[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N2
+cycloneive_lcell_comb \keyboard_inst|Equal0~0 (
+// Equation(s):
+// \keyboard_inst|Equal0~0_combout  = (\keyboard_inst|counter [8] & (\keyboard_inst|counter [7] & (!\keyboard_inst|counter [9] & \keyboard_inst|counter [6])))
+
+	.dataa(\keyboard_inst|counter [8]),
+	.datab(\keyboard_inst|counter [7]),
+	.datac(\keyboard_inst|counter [9]),
+	.datad(\keyboard_inst|counter [6]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal0~0 .lut_mask = 16'h0800;
+defparam \keyboard_inst|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N28
+cycloneive_lcell_comb \keyboard_inst|Equal0~2 (
+// Equation(s):
+// \keyboard_inst|Equal0~2_combout  = (((!\keyboard_inst|Equal0~0_combout ) # (!\keyboard_inst|Equal0~1_combout )) # (!\keyboard_inst|counter [1])) # (!\keyboard_inst|counter [0])
+
+	.dataa(\keyboard_inst|counter [0]),
+	.datab(\keyboard_inst|counter [1]),
+	.datac(\keyboard_inst|Equal0~1_combout ),
+	.datad(\keyboard_inst|Equal0~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal0~2 .lut_mask = 16'h7FFF;
+defparam \keyboard_inst|Equal0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N29
+dffeas \keyboard_inst|enable (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Equal0~2_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|enable~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|enable .is_wysiwyg = "true";
+defparam \keyboard_inst|enable .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N1
+dffeas \keyboard_inst|Dreg_instance1|Q (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\PS2_CLK~input_o ),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_inst|enable~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Dreg_instance1|Q~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Dreg_instance1|Q .is_wysiwyg = "true";
+defparam \keyboard_inst|Dreg_instance1|Q .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X4_Y66_N27
+dffeas \keyboard_inst|Dreg_instance2|Q (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_inst|Dreg_instance1|Q~q ),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_inst|enable~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Dreg_instance2|Q~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Dreg_instance2|Q .is_wysiwyg = "true";
+defparam \keyboard_inst|Dreg_instance2|Q .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y66_N26
+cycloneive_lcell_comb \keyboard_inst|Count[0]~7 (
+// Equation(s):
+// \keyboard_inst|Count[0]~7_combout  = (!\keyboard_inst|enable~q  & ((\keyboard_inst|always1~0_combout ) # ((!\keyboard_inst|Dreg_instance1|Q~q  & \keyboard_inst|Dreg_instance2|Q~q ))))
+
+	.dataa(\keyboard_inst|Dreg_instance1|Q~q ),
+	.datab(\keyboard_inst|enable~q ),
+	.datac(\keyboard_inst|Dreg_instance2|Q~q ),
+	.datad(\keyboard_inst|always1~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Count[0]~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Count[0]~7 .lut_mask = 16'h3310;
+defparam \keyboard_inst|Count[0]~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y66_N7
+dffeas \keyboard_inst|Count[0] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Count[0]~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\keyboard_inst|always1~0_combout ),
+	.sload(gnd),
+	.ena(\keyboard_inst|Count[0]~7_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Count [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Count[0] .is_wysiwyg = "true";
+defparam \keyboard_inst|Count[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y66_N8
+cycloneive_lcell_comb \keyboard_inst|Count[1]~8 (
+// Equation(s):
+// \keyboard_inst|Count[1]~8_combout  = (\keyboard_inst|Count [1] & (!\keyboard_inst|Count[0]~6 )) # (!\keyboard_inst|Count [1] & ((\keyboard_inst|Count[0]~6 ) # (GND)))
+// \keyboard_inst|Count[1]~9  = CARRY((!\keyboard_inst|Count[0]~6 ) # (!\keyboard_inst|Count [1]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Count [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Count[0]~6 ),
+	.combout(\keyboard_inst|Count[1]~8_combout ),
+	.cout(\keyboard_inst|Count[1]~9 ));
+// synopsys translate_off
+defparam \keyboard_inst|Count[1]~8 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Count[1]~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X5_Y66_N9
+dffeas \keyboard_inst|Count[1] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Count[1]~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\keyboard_inst|always1~0_combout ),
+	.sload(gnd),
+	.ena(\keyboard_inst|Count[0]~7_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Count [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Count[1] .is_wysiwyg = "true";
+defparam \keyboard_inst|Count[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y66_N10
+cycloneive_lcell_comb \keyboard_inst|Count[2]~10 (
+// Equation(s):
+// \keyboard_inst|Count[2]~10_combout  = (\keyboard_inst|Count [2] & (\keyboard_inst|Count[1]~9  $ (GND))) # (!\keyboard_inst|Count [2] & (!\keyboard_inst|Count[1]~9  & VCC))
+// \keyboard_inst|Count[2]~11  = CARRY((\keyboard_inst|Count [2] & !\keyboard_inst|Count[1]~9 ))
+
+	.dataa(\keyboard_inst|Count [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Count[1]~9 ),
+	.combout(\keyboard_inst|Count[2]~10_combout ),
+	.cout(\keyboard_inst|Count[2]~11 ));
+// synopsys translate_off
+defparam \keyboard_inst|Count[2]~10 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Count[2]~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X5_Y66_N11
+dffeas \keyboard_inst|Count[2] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Count[2]~10_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\keyboard_inst|always1~0_combout ),
+	.sload(gnd),
+	.ena(\keyboard_inst|Count[0]~7_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Count [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Count[2] .is_wysiwyg = "true";
+defparam \keyboard_inst|Count[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y66_N12
+cycloneive_lcell_comb \keyboard_inst|Count[3]~12 (
+// Equation(s):
+// \keyboard_inst|Count[3]~12_combout  = (\keyboard_inst|Count [3] & (!\keyboard_inst|Count[2]~11 )) # (!\keyboard_inst|Count [3] & ((\keyboard_inst|Count[2]~11 ) # (GND)))
+// \keyboard_inst|Count[3]~13  = CARRY((!\keyboard_inst|Count[2]~11 ) # (!\keyboard_inst|Count [3]))
+
+	.dataa(\keyboard_inst|Count [3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Count[2]~11 ),
+	.combout(\keyboard_inst|Count[3]~12_combout ),
+	.cout(\keyboard_inst|Count[3]~13 ));
+// synopsys translate_off
+defparam \keyboard_inst|Count[3]~12 .lut_mask = 16'h5A5F;
+defparam \keyboard_inst|Count[3]~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X5_Y66_N13
+dffeas \keyboard_inst|Count[3] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Count[3]~12_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\keyboard_inst|always1~0_combout ),
+	.sload(gnd),
+	.ena(\keyboard_inst|Count[0]~7_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Count [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Count[3] .is_wysiwyg = "true";
+defparam \keyboard_inst|Count[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y66_N14
+cycloneive_lcell_comb \keyboard_inst|Count[4]~14 (
+// Equation(s):
+// \keyboard_inst|Count[4]~14_combout  = \keyboard_inst|Count [4] $ (!\keyboard_inst|Count[3]~13 )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Count [4]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\keyboard_inst|Count[3]~13 ),
+	.combout(\keyboard_inst|Count[4]~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Count[4]~14 .lut_mask = 16'hC3C3;
+defparam \keyboard_inst|Count[4]~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X5_Y66_N15
+dffeas \keyboard_inst|Count[4] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Count[4]~14_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\keyboard_inst|always1~0_combout ),
+	.sload(gnd),
+	.ena(\keyboard_inst|Count[0]~7_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Count [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Count[4] .is_wysiwyg = "true";
+defparam \keyboard_inst|Count[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y66_N26
+cycloneive_lcell_comb \keyboard_inst|Equal2~1 (
+// Equation(s):
+// \keyboard_inst|Equal2~1_combout  = (!\keyboard_inst|Count [4] & \keyboard_inst|Equal2~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|Count [4]),
+	.datad(\keyboard_inst|Equal2~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal2~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal2~1 .lut_mask = 16'h0F00;
+defparam \keyboard_inst|Equal2~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N6
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~8 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~8_combout  = (\keyboard_inst|reg_B|Data_Out [6] & ((!\keyboard_inst|Equal6~1_combout ) # (!\keyboard_inst|Equal6~0_combout )))
+
+	.dataa(\keyboard_inst|Equal6~0_combout ),
+	.datab(\keyboard_inst|reg_B|Data_Out [6]),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal6~1_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~8 .lut_mask = 16'h44CC;
+defparam \keyboard_inst|Typematic_Keycode~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N30
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode[7]~0 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode[7]~0_combout  = (((\keyboard_inst|reg_B|Data_Out [5]) # (!\keyboard_inst|reg_B|Data_Out [8])) # (!\keyboard_inst|reg_B|Data_Out [7])) # (!\keyboard_inst|reg_B|Data_Out [9])
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [9]),
+	.datab(\keyboard_inst|reg_B|Data_Out [7]),
+	.datac(\keyboard_inst|reg_B|Data_Out [5]),
+	.datad(\keyboard_inst|reg_B|Data_Out [8]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode[7]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[7]~0 .lut_mask = 16'hF7FF;
+defparam \keyboard_inst|Typematic_Keycode[7]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N0
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode[7]~1 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode[7]~1_combout  = (\keyboard_inst|reg_B|Data_Out [2]) # ((\keyboard_inst|reg_B|Data_Out [3]) # ((\keyboard_inst|reg_B|Data_Out [4]) # (\keyboard_inst|Typematic_Keycode[7]~0_combout )))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [2]),
+	.datab(\keyboard_inst|reg_B|Data_Out [3]),
+	.datac(\keyboard_inst|reg_B|Data_Out [4]),
+	.datad(\keyboard_inst|Typematic_Keycode[7]~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode[7]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[7]~1 .lut_mask = 16'hFFFE;
+defparam \keyboard_inst|Typematic_Keycode[7]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N10
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode[7]~3 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode[7]~3_combout  = (\keyboard_inst|Equal2~1_combout  & (\keyboard_inst|Typematic_Keycode[7]~1_combout  & (\keyboard_inst|Equal5~4_combout  $ (!\keyboard_inst|Equal6~2_combout ))))
+
+	.dataa(\keyboard_inst|Equal2~1_combout ),
+	.datab(\keyboard_inst|Equal5~4_combout ),
+	.datac(\keyboard_inst|Typematic_Keycode[7]~1_combout ),
+	.datad(\keyboard_inst|Equal6~2_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[7]~3 .lut_mask = 16'h8020;
+defparam \keyboard_inst|Typematic_Keycode[7]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N13
+dffeas \keyboard_inst|Typematic_Keycode[4] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_inst|Typematic_Keycode~8_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[4] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N24
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~7 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~7_combout  = (\keyboard_inst|reg_B|Data_Out [7] & ((!\keyboard_inst|Equal6~1_combout ) # (!\keyboard_inst|Equal6~0_combout )))
+
+	.dataa(\keyboard_inst|Equal6~0_combout ),
+	.datab(\keyboard_inst|reg_B|Data_Out [7]),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal6~1_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~7 .lut_mask = 16'h44CC;
+defparam \keyboard_inst|Typematic_Keycode~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y67_N14
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode[5]~feeder (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode[5]~feeder_combout  = \keyboard_inst|Typematic_Keycode~7_combout 
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Typematic_Keycode~7_combout ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode[5]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[5]~feeder .lut_mask = 16'hCCCC;
+defparam \keyboard_inst|Typematic_Keycode[5]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X4_Y67_N15
+dffeas \keyboard_inst|Typematic_Keycode[5] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Typematic_Keycode[5]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[5] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N12
+cycloneive_lcell_comb \keyboard_inst|Equal5~2 (
+// Equation(s):
+// \keyboard_inst|Equal5~2_combout  = (\keyboard_inst|reg_B|Data_Out [6] & (\keyboard_inst|Typematic_Keycode [4] & (\keyboard_inst|reg_B|Data_Out [7] $ (!\keyboard_inst|Typematic_Keycode [5])))) # (!\keyboard_inst|reg_B|Data_Out [6] & 
+// (!\keyboard_inst|Typematic_Keycode [4] & (\keyboard_inst|reg_B|Data_Out [7] $ (!\keyboard_inst|Typematic_Keycode [5]))))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [6]),
+	.datab(\keyboard_inst|reg_B|Data_Out [7]),
+	.datac(\keyboard_inst|Typematic_Keycode [4]),
+	.datad(\keyboard_inst|Typematic_Keycode [5]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal5~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal5~2 .lut_mask = 16'h8421;
+defparam \keyboard_inst|Equal5~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N18
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~6 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~6_combout  = (\keyboard_inst|reg_B|Data_Out [5] & ((!\keyboard_inst|Equal6~1_combout ) # (!\keyboard_inst|Equal6~0_combout )))
+
+	.dataa(\keyboard_inst|Equal6~0_combout ),
+	.datab(\keyboard_inst|Equal6~1_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_B|Data_Out [5]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~6 .lut_mask = 16'h7700;
+defparam \keyboard_inst|Typematic_Keycode~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N25
+dffeas \keyboard_inst|Typematic_Keycode[3] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_inst|Typematic_Keycode~6_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[3] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N22
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~5 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~5_combout  = (\keyboard_inst|reg_B|Data_Out [4] & ((!\keyboard_inst|Equal6~1_combout ) # (!\keyboard_inst|Equal6~0_combout )))
+
+	.dataa(\keyboard_inst|Equal6~0_combout ),
+	.datab(\keyboard_inst|Equal6~1_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_B|Data_Out [4]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~5 .lut_mask = 16'h7700;
+defparam \keyboard_inst|Typematic_Keycode~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N29
+dffeas \keyboard_inst|Typematic_Keycode[2] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_inst|Typematic_Keycode~5_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[2] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N28
+cycloneive_lcell_comb \keyboard_inst|Equal5~1 (
+// Equation(s):
+// \keyboard_inst|Equal5~1_combout  = (\keyboard_inst|reg_B|Data_Out [5] & (\keyboard_inst|Typematic_Keycode [3] & (\keyboard_inst|Typematic_Keycode [2] $ (!\keyboard_inst|reg_B|Data_Out [4])))) # (!\keyboard_inst|reg_B|Data_Out [5] & 
+// (!\keyboard_inst|Typematic_Keycode [3] & (\keyboard_inst|Typematic_Keycode [2] $ (!\keyboard_inst|reg_B|Data_Out [4]))))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [5]),
+	.datab(\keyboard_inst|Typematic_Keycode [3]),
+	.datac(\keyboard_inst|Typematic_Keycode [2]),
+	.datad(\keyboard_inst|reg_B|Data_Out [4]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal5~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal5~1 .lut_mask = 16'h9009;
+defparam \keyboard_inst|Equal5~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N14
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~4 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~4_combout  = (\keyboard_inst|reg_B|Data_Out [3] & ((!\keyboard_inst|Equal6~0_combout ) # (!\keyboard_inst|Equal6~1_combout )))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [3]),
+	.datab(\keyboard_inst|Equal6~1_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal6~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~4 .lut_mask = 16'h22AA;
+defparam \keyboard_inst|Typematic_Keycode~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X4_Y67_N21
+dffeas \keyboard_inst|Typematic_Keycode[1] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_inst|Typematic_Keycode~4_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[1] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N28
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~2 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~2_combout  = (\keyboard_inst|reg_B|Data_Out [2] & ((!\keyboard_inst|Equal6~0_combout ) # (!\keyboard_inst|Equal6~1_combout )))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [2]),
+	.datab(\keyboard_inst|Equal6~1_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal6~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~2 .lut_mask = 16'h22AA;
+defparam \keyboard_inst|Typematic_Keycode~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N3
+dffeas \keyboard_inst|Typematic_Keycode[0] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_inst|Typematic_Keycode~2_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[0] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N2
+cycloneive_lcell_comb \keyboard_inst|Equal5~0 (
+// Equation(s):
+// \keyboard_inst|Equal5~0_combout  = (\keyboard_inst|reg_B|Data_Out [2] & (\keyboard_inst|Typematic_Keycode [0] & (\keyboard_inst|Typematic_Keycode [1] $ (!\keyboard_inst|reg_B|Data_Out [3])))) # (!\keyboard_inst|reg_B|Data_Out [2] & 
+// (!\keyboard_inst|Typematic_Keycode [0] & (\keyboard_inst|Typematic_Keycode [1] $ (!\keyboard_inst|reg_B|Data_Out [3]))))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [2]),
+	.datab(\keyboard_inst|Typematic_Keycode [1]),
+	.datac(\keyboard_inst|Typematic_Keycode [0]),
+	.datad(\keyboard_inst|reg_B|Data_Out [3]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal5~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal5~0 .lut_mask = 16'h8421;
+defparam \keyboard_inst|Equal5~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N14
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~9 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~9_combout  = (\keyboard_inst|reg_B|Data_Out [8] & ((!\keyboard_inst|Equal6~0_combout ) # (!\keyboard_inst|Equal6~1_combout )))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|reg_B|Data_Out [8]),
+	.datac(\keyboard_inst|Equal6~1_combout ),
+	.datad(\keyboard_inst|Equal6~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~9 .lut_mask = 16'h0CCC;
+defparam \keyboard_inst|Typematic_Keycode~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X5_Y67_N21
+dffeas \keyboard_inst|Typematic_Keycode[6] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_inst|Typematic_Keycode~9_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[6] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N4
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode~10 (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode~10_combout  = (\keyboard_inst|reg_B|Data_Out [9] & ((!\keyboard_inst|Equal6~1_combout ) # (!\keyboard_inst|Equal6~0_combout )))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [9]),
+	.datab(\keyboard_inst|Equal6~0_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal6~1_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode~10_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode~10 .lut_mask = 16'h22AA;
+defparam \keyboard_inst|Typematic_Keycode~10 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X4_Y67_N24
+cycloneive_lcell_comb \keyboard_inst|Typematic_Keycode[7]~feeder (
+// Equation(s):
+// \keyboard_inst|Typematic_Keycode[7]~feeder_combout  = \keyboard_inst|Typematic_Keycode~10_combout 
+
+	.dataa(\keyboard_inst|Typematic_Keycode~10_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|Typematic_Keycode[7]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[7]~feeder .lut_mask = 16'hAAAA;
+defparam \keyboard_inst|Typematic_Keycode[7]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X4_Y67_N25
+dffeas \keyboard_inst|Typematic_Keycode[7] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Typematic_Keycode[7]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Typematic_Keycode[7]~3_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Typematic_Keycode [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Typematic_Keycode[7] .is_wysiwyg = "true";
+defparam \keyboard_inst|Typematic_Keycode[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N20
+cycloneive_lcell_comb \keyboard_inst|Equal5~3 (
+// Equation(s):
+// \keyboard_inst|Equal5~3_combout  = (\keyboard_inst|reg_B|Data_Out [9] & (\keyboard_inst|Typematic_Keycode [7] & (\keyboard_inst|reg_B|Data_Out [8] $ (!\keyboard_inst|Typematic_Keycode [6])))) # (!\keyboard_inst|reg_B|Data_Out [9] & 
+// (!\keyboard_inst|Typematic_Keycode [7] & (\keyboard_inst|reg_B|Data_Out [8] $ (!\keyboard_inst|Typematic_Keycode [6]))))
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [9]),
+	.datab(\keyboard_inst|reg_B|Data_Out [8]),
+	.datac(\keyboard_inst|Typematic_Keycode [6]),
+	.datad(\keyboard_inst|Typematic_Keycode [7]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal5~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal5~3 .lut_mask = 16'h8241;
+defparam \keyboard_inst|Equal5~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X5_Y67_N16
+cycloneive_lcell_comb \keyboard_inst|Equal5~4 (
+// Equation(s):
+// \keyboard_inst|Equal5~4_combout  = (\keyboard_inst|Equal5~2_combout  & (\keyboard_inst|Equal5~1_combout  & (\keyboard_inst|Equal5~0_combout  & \keyboard_inst|Equal5~3_combout )))
+
+	.dataa(\keyboard_inst|Equal5~2_combout ),
+	.datab(\keyboard_inst|Equal5~1_combout ),
+	.datac(\keyboard_inst|Equal5~0_combout ),
+	.datad(\keyboard_inst|Equal5~3_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal5~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal5~4 .lut_mask = 16'h8000;
+defparam \keyboard_inst|Equal5~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N8
+cycloneive_lcell_comb \keyboard_inst|Data[6]~0 (
+// Equation(s):
+// \keyboard_inst|Data[6]~0_combout  = (((!\keyboard_inst|Equal6~2_combout  & \keyboard_inst|Equal5~4_combout )) # (!\keyboard_inst|Typematic_Keycode[7]~1_combout )) # (!\keyboard_inst|Equal2~1_combout )
+
+	.dataa(\keyboard_inst|Equal6~2_combout ),
+	.datab(\keyboard_inst|Equal2~1_combout ),
+	.datac(\keyboard_inst|Equal5~4_combout ),
+	.datad(\keyboard_inst|Typematic_Keycode[7]~1_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data[6]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data[6]~0 .lut_mask = 16'h73FF;
+defparam \keyboard_inst|Data[6]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N12
+cycloneive_lcell_comb \keyboard_inst|Data~4 (
+// Equation(s):
+// \keyboard_inst|Data~4_combout  = (\keyboard_inst|reg_B|Data_Out [8] & !\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [8]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|Data[6]~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~4 .lut_mask = 16'h00AA;
+defparam \keyboard_inst|Data~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N6
+cycloneive_lcell_comb \keyboard_inst|Add1~0 (
+// Equation(s):
+// \keyboard_inst|Add1~0_combout  = \keyboard_inst|refresh [0] $ (VCC)
+// \keyboard_inst|Add1~1  = CARRY(\keyboard_inst|refresh [0])
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\keyboard_inst|Add1~0_combout ),
+	.cout(\keyboard_inst|Add1~1 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~0 .lut_mask = 16'h33CC;
+defparam \keyboard_inst|Add1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N4
+cycloneive_lcell_comb \keyboard_inst|refresh~8 (
+// Equation(s):
+// \keyboard_inst|refresh~8_combout  = (\keyboard_inst|Add1~0_combout  & !\keyboard_inst|Equal1~8_combout )
+
+	.dataa(\keyboard_inst|Add1~0_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal1~8_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~8 .lut_mask = 16'h00AA;
+defparam \keyboard_inst|refresh~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N5
+dffeas \keyboard_inst|refresh[0] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~8_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[0] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N8
+cycloneive_lcell_comb \keyboard_inst|Add1~2 (
+// Equation(s):
+// \keyboard_inst|Add1~2_combout  = (\keyboard_inst|refresh [1] & (!\keyboard_inst|Add1~1 )) # (!\keyboard_inst|refresh [1] & ((\keyboard_inst|Add1~1 ) # (GND)))
+// \keyboard_inst|Add1~3  = CARRY((!\keyboard_inst|Add1~1 ) # (!\keyboard_inst|refresh [1]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~1 ),
+	.combout(\keyboard_inst|Add1~2_combout ),
+	.cout(\keyboard_inst|Add1~3 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~2 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N9
+dffeas \keyboard_inst|refresh[1] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~2_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[1] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N10
+cycloneive_lcell_comb \keyboard_inst|Add1~4 (
+// Equation(s):
+// \keyboard_inst|Add1~4_combout  = (\keyboard_inst|refresh [2] & (!\keyboard_inst|Add1~3  & VCC)) # (!\keyboard_inst|refresh [2] & (\keyboard_inst|Add1~3  $ (GND)))
+// \keyboard_inst|Add1~5  = CARRY((!\keyboard_inst|refresh [2] & !\keyboard_inst|Add1~3 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~3 ),
+	.combout(\keyboard_inst|Add1~4_combout ),
+	.cout(\keyboard_inst|Add1~5 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~4 .lut_mask = 16'h3C03;
+defparam \keyboard_inst|Add1~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N2
+cycloneive_lcell_comb \keyboard_inst|refresh~7 (
+// Equation(s):
+// \keyboard_inst|refresh~7_combout  = \keyboard_inst|Add1~4_combout  $ (!\keyboard_inst|Equal1~8_combout )
+
+	.dataa(\keyboard_inst|Add1~4_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|Equal1~8_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~7 .lut_mask = 16'hAA55;
+defparam \keyboard_inst|refresh~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N3
+dffeas \keyboard_inst|refresh[2] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~7_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[2] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N12
+cycloneive_lcell_comb \keyboard_inst|Add1~6 (
+// Equation(s):
+// \keyboard_inst|Add1~6_combout  = (\keyboard_inst|refresh [3] & (!\keyboard_inst|Add1~5 )) # (!\keyboard_inst|refresh [3] & ((\keyboard_inst|Add1~5 ) # (GND)))
+// \keyboard_inst|Add1~7  = CARRY((!\keyboard_inst|Add1~5 ) # (!\keyboard_inst|refresh [3]))
+
+	.dataa(\keyboard_inst|refresh [3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~5 ),
+	.combout(\keyboard_inst|Add1~6_combout ),
+	.cout(\keyboard_inst|Add1~7 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~6 .lut_mask = 16'h5A5F;
+defparam \keyboard_inst|Add1~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N13
+dffeas \keyboard_inst|refresh[3] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~6_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[3] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N14
+cycloneive_lcell_comb \keyboard_inst|Add1~8 (
+// Equation(s):
+// \keyboard_inst|Add1~8_combout  = (\keyboard_inst|refresh [4] & (\keyboard_inst|Add1~7  $ (GND))) # (!\keyboard_inst|refresh [4] & (!\keyboard_inst|Add1~7  & VCC))
+// \keyboard_inst|Add1~9  = CARRY((\keyboard_inst|refresh [4] & !\keyboard_inst|Add1~7 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~7 ),
+	.combout(\keyboard_inst|Add1~8_combout ),
+	.cout(\keyboard_inst|Add1~9 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~8 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add1~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N15
+dffeas \keyboard_inst|refresh[4] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~8_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[4] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N16
+cycloneive_lcell_comb \keyboard_inst|Add1~10 (
+// Equation(s):
+// \keyboard_inst|Add1~10_combout  = (\keyboard_inst|refresh [5] & (!\keyboard_inst|Add1~9 )) # (!\keyboard_inst|refresh [5] & ((\keyboard_inst|Add1~9 ) # (GND)))
+// \keyboard_inst|Add1~11  = CARRY((!\keyboard_inst|Add1~9 ) # (!\keyboard_inst|refresh [5]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~9 ),
+	.combout(\keyboard_inst|Add1~10_combout ),
+	.cout(\keyboard_inst|Add1~11 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~10 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N17
+dffeas \keyboard_inst|refresh[5] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~10_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[5] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N18
+cycloneive_lcell_comb \keyboard_inst|Add1~12 (
+// Equation(s):
+// \keyboard_inst|Add1~12_combout  = (\keyboard_inst|refresh [6] & (\keyboard_inst|Add1~11  $ (GND))) # (!\keyboard_inst|refresh [6] & (!\keyboard_inst|Add1~11  & VCC))
+// \keyboard_inst|Add1~13  = CARRY((\keyboard_inst|refresh [6] & !\keyboard_inst|Add1~11 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~11 ),
+	.combout(\keyboard_inst|Add1~12_combout ),
+	.cout(\keyboard_inst|Add1~13 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~12 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add1~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N19
+dffeas \keyboard_inst|refresh[6] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~12_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[6] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N20
+cycloneive_lcell_comb \keyboard_inst|Add1~14 (
+// Equation(s):
+// \keyboard_inst|Add1~14_combout  = (\keyboard_inst|refresh [7] & (!\keyboard_inst|Add1~13 )) # (!\keyboard_inst|refresh [7] & ((\keyboard_inst|Add1~13 ) # (GND)))
+// \keyboard_inst|Add1~15  = CARRY((!\keyboard_inst|Add1~13 ) # (!\keyboard_inst|refresh [7]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [7]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~13 ),
+	.combout(\keyboard_inst|Add1~14_combout ),
+	.cout(\keyboard_inst|Add1~15 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~14 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N21
+dffeas \keyboard_inst|refresh[7] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~14_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[7] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N22
+cycloneive_lcell_comb \keyboard_inst|Add1~16 (
+// Equation(s):
+// \keyboard_inst|Add1~16_combout  = (\keyboard_inst|refresh [8] & (\keyboard_inst|Add1~15  $ (GND))) # (!\keyboard_inst|refresh [8] & (!\keyboard_inst|Add1~15  & VCC))
+// \keyboard_inst|Add1~17  = CARRY((\keyboard_inst|refresh [8] & !\keyboard_inst|Add1~15 ))
+
+	.dataa(\keyboard_inst|refresh [8]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~15 ),
+	.combout(\keyboard_inst|Add1~16_combout ),
+	.cout(\keyboard_inst|Add1~17 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~16 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Add1~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N23
+dffeas \keyboard_inst|refresh[8] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~16_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[8] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N24
+cycloneive_lcell_comb \keyboard_inst|Add1~18 (
+// Equation(s):
+// \keyboard_inst|Add1~18_combout  = (\keyboard_inst|refresh [9] & (!\keyboard_inst|Add1~17 )) # (!\keyboard_inst|refresh [9] & ((\keyboard_inst|Add1~17 ) # (GND)))
+// \keyboard_inst|Add1~19  = CARRY((!\keyboard_inst|Add1~17 ) # (!\keyboard_inst|refresh [9]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [9]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~17 ),
+	.combout(\keyboard_inst|Add1~18_combout ),
+	.cout(\keyboard_inst|Add1~19 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~18 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N25
+dffeas \keyboard_inst|refresh[9] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~18_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[9] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N0
+cycloneive_lcell_comb \keyboard_inst|Equal1~5 (
+// Equation(s):
+// \keyboard_inst|Equal1~5_combout  = (!\keyboard_inst|refresh [8] & (!\keyboard_inst|refresh [6] & (!\keyboard_inst|refresh [7] & !\keyboard_inst|refresh [9])))
+
+	.dataa(\keyboard_inst|refresh [8]),
+	.datab(\keyboard_inst|refresh [6]),
+	.datac(\keyboard_inst|refresh [7]),
+	.datad(\keyboard_inst|refresh [9]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~5 .lut_mask = 16'h0001;
+defparam \keyboard_inst|Equal1~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N14
+cycloneive_lcell_comb \keyboard_inst|Equal1~7 (
+// Equation(s):
+// \keyboard_inst|Equal1~7_combout  = (!\keyboard_inst|refresh [0] & !\keyboard_inst|refresh [1])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|refresh [0]),
+	.datad(\keyboard_inst|refresh [1]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~7 .lut_mask = 16'h000F;
+defparam \keyboard_inst|Equal1~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y68_N16
+cycloneive_lcell_comb \keyboard_inst|Equal1~6 (
+// Equation(s):
+// \keyboard_inst|Equal1~6_combout  = (\keyboard_inst|refresh [2] & (!\keyboard_inst|refresh [4] & (!\keyboard_inst|refresh [5] & !\keyboard_inst|refresh [3])))
+
+	.dataa(\keyboard_inst|refresh [2]),
+	.datab(\keyboard_inst|refresh [4]),
+	.datac(\keyboard_inst|refresh [5]),
+	.datad(\keyboard_inst|refresh [3]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~6 .lut_mask = 16'h0002;
+defparam \keyboard_inst|Equal1~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N26
+cycloneive_lcell_comb \keyboard_inst|Add1~20 (
+// Equation(s):
+// \keyboard_inst|Add1~20_combout  = (\keyboard_inst|refresh [10] & (\keyboard_inst|Add1~19  $ (GND))) # (!\keyboard_inst|refresh [10] & (!\keyboard_inst|Add1~19  & VCC))
+// \keyboard_inst|Add1~21  = CARRY((\keyboard_inst|refresh [10] & !\keyboard_inst|Add1~19 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [10]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~19 ),
+	.combout(\keyboard_inst|Add1~20_combout ),
+	.cout(\keyboard_inst|Add1~21 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~20 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add1~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N0
+cycloneive_lcell_comb \keyboard_inst|refresh~6 (
+// Equation(s):
+// \keyboard_inst|refresh~6_combout  = (!\keyboard_inst|Equal1~8_combout  & \keyboard_inst|Add1~20_combout )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Equal1~8_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Add1~20_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~6 .lut_mask = 16'h3300;
+defparam \keyboard_inst|refresh~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X3_Y67_N1
+dffeas \keyboard_inst|refresh[10] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~6_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [10]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[10] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[10] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N28
+cycloneive_lcell_comb \keyboard_inst|Add1~22 (
+// Equation(s):
+// \keyboard_inst|Add1~22_combout  = (\keyboard_inst|refresh [11] & (!\keyboard_inst|Add1~21 )) # (!\keyboard_inst|refresh [11] & ((\keyboard_inst|Add1~21 ) # (GND)))
+// \keyboard_inst|Add1~23  = CARRY((!\keyboard_inst|Add1~21 ) # (!\keyboard_inst|refresh [11]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [11]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~21 ),
+	.combout(\keyboard_inst|Add1~22_combout ),
+	.cout(\keyboard_inst|Add1~23 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~22 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N29
+dffeas \keyboard_inst|refresh[11] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~22_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [11]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[11] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[11] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y68_N30
+cycloneive_lcell_comb \keyboard_inst|Add1~24 (
+// Equation(s):
+// \keyboard_inst|Add1~24_combout  = (\keyboard_inst|refresh [12] & (\keyboard_inst|Add1~23  $ (GND))) # (!\keyboard_inst|refresh [12] & (!\keyboard_inst|Add1~23  & VCC))
+// \keyboard_inst|Add1~25  = CARRY((\keyboard_inst|refresh [12] & !\keyboard_inst|Add1~23 ))
+
+	.dataa(\keyboard_inst|refresh [12]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~23 ),
+	.combout(\keyboard_inst|Add1~24_combout ),
+	.cout(\keyboard_inst|Add1~25 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~24 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Add1~24 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y68_N31
+dffeas \keyboard_inst|refresh[12] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~24_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [12]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[12] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[12] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N0
+cycloneive_lcell_comb \keyboard_inst|Add1~26 (
+// Equation(s):
+// \keyboard_inst|Add1~26_combout  = (\keyboard_inst|refresh [13] & (!\keyboard_inst|Add1~25 )) # (!\keyboard_inst|refresh [13] & ((\keyboard_inst|Add1~25 ) # (GND)))
+// \keyboard_inst|Add1~27  = CARRY((!\keyboard_inst|Add1~25 ) # (!\keyboard_inst|refresh [13]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [13]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~25 ),
+	.combout(\keyboard_inst|Add1~26_combout ),
+	.cout(\keyboard_inst|Add1~27 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~26 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~26 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N22
+cycloneive_lcell_comb \keyboard_inst|refresh~5 (
+// Equation(s):
+// \keyboard_inst|refresh~5_combout  = (!\keyboard_inst|Equal1~8_combout  & \keyboard_inst|Add1~26_combout )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Equal1~8_combout ),
+	.datac(\keyboard_inst|Add1~26_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~5 .lut_mask = 16'h3030;
+defparam \keyboard_inst|refresh~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X3_Y67_N23
+dffeas \keyboard_inst|refresh[13] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~5_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [13]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[13] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[13] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N2
+cycloneive_lcell_comb \keyboard_inst|Add1~28 (
+// Equation(s):
+// \keyboard_inst|Add1~28_combout  = (\keyboard_inst|refresh [14] & (\keyboard_inst|Add1~27  $ (GND))) # (!\keyboard_inst|refresh [14] & (!\keyboard_inst|Add1~27  & VCC))
+// \keyboard_inst|Add1~29  = CARRY((\keyboard_inst|refresh [14] & !\keyboard_inst|Add1~27 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [14]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~27 ),
+	.combout(\keyboard_inst|Add1~28_combout ),
+	.cout(\keyboard_inst|Add1~29 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~28 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add1~28 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N3
+dffeas \keyboard_inst|refresh[14] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~28_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [14]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[14] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[14] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N4
+cycloneive_lcell_comb \keyboard_inst|Add1~30 (
+// Equation(s):
+// \keyboard_inst|Add1~30_combout  = (\keyboard_inst|refresh [15] & (!\keyboard_inst|Add1~29 )) # (!\keyboard_inst|refresh [15] & ((\keyboard_inst|Add1~29 ) # (GND)))
+// \keyboard_inst|Add1~31  = CARRY((!\keyboard_inst|Add1~29 ) # (!\keyboard_inst|refresh [15]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [15]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~29 ),
+	.combout(\keyboard_inst|Add1~30_combout ),
+	.cout(\keyboard_inst|Add1~31 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~30 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~30 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N5
+dffeas \keyboard_inst|refresh[15] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~30_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [15]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[15] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[15] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N6
+cycloneive_lcell_comb \keyboard_inst|Add1~32 (
+// Equation(s):
+// \keyboard_inst|Add1~32_combout  = (\keyboard_inst|refresh [16] & (\keyboard_inst|Add1~31  $ (GND))) # (!\keyboard_inst|refresh [16] & (!\keyboard_inst|Add1~31  & VCC))
+// \keyboard_inst|Add1~33  = CARRY((\keyboard_inst|refresh [16] & !\keyboard_inst|Add1~31 ))
+
+	.dataa(\keyboard_inst|refresh [16]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~31 ),
+	.combout(\keyboard_inst|Add1~32_combout ),
+	.cout(\keyboard_inst|Add1~33 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~32 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Add1~32 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N7
+dffeas \keyboard_inst|refresh[16] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~32_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [16]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[16] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[16] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N8
+cycloneive_lcell_comb \keyboard_inst|Add1~34 (
+// Equation(s):
+// \keyboard_inst|Add1~34_combout  = (\keyboard_inst|refresh [17] & (!\keyboard_inst|Add1~33 )) # (!\keyboard_inst|refresh [17] & ((\keyboard_inst|Add1~33 ) # (GND)))
+// \keyboard_inst|Add1~35  = CARRY((!\keyboard_inst|Add1~33 ) # (!\keyboard_inst|refresh [17]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [17]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~33 ),
+	.combout(\keyboard_inst|Add1~34_combout ),
+	.cout(\keyboard_inst|Add1~35 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~34 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~34 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N9
+dffeas \keyboard_inst|refresh[17] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~34_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [17]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[17] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[17] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N10
+cycloneive_lcell_comb \keyboard_inst|Add1~36 (
+// Equation(s):
+// \keyboard_inst|Add1~36_combout  = (\keyboard_inst|refresh [18] & (\keyboard_inst|Add1~35  $ (GND))) # (!\keyboard_inst|refresh [18] & (!\keyboard_inst|Add1~35  & VCC))
+// \keyboard_inst|Add1~37  = CARRY((\keyboard_inst|refresh [18] & !\keyboard_inst|Add1~35 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [18]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~35 ),
+	.combout(\keyboard_inst|Add1~36_combout ),
+	.cout(\keyboard_inst|Add1~37 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~36 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add1~36 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N18
+cycloneive_lcell_comb \keyboard_inst|refresh~4 (
+// Equation(s):
+// \keyboard_inst|refresh~4_combout  = (!\keyboard_inst|Equal1~8_combout  & \keyboard_inst|Add1~36_combout )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Equal1~8_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Add1~36_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~4 .lut_mask = 16'h3300;
+defparam \keyboard_inst|refresh~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X3_Y67_N19
+dffeas \keyboard_inst|refresh[18] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~4_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [18]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[18] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[18] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N12
+cycloneive_lcell_comb \keyboard_inst|Add1~38 (
+// Equation(s):
+// \keyboard_inst|Add1~38_combout  = (\keyboard_inst|refresh [19] & (!\keyboard_inst|Add1~37 )) # (!\keyboard_inst|refresh [19] & ((\keyboard_inst|Add1~37 ) # (GND)))
+// \keyboard_inst|Add1~39  = CARRY((!\keyboard_inst|Add1~37 ) # (!\keyboard_inst|refresh [19]))
+
+	.dataa(\keyboard_inst|refresh [19]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~37 ),
+	.combout(\keyboard_inst|Add1~38_combout ),
+	.cout(\keyboard_inst|Add1~39 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~38 .lut_mask = 16'h5A5F;
+defparam \keyboard_inst|Add1~38 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N13
+dffeas \keyboard_inst|refresh[19] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~38_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [19]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[19] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[19] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N14
+cycloneive_lcell_comb \keyboard_inst|Add1~40 (
+// Equation(s):
+// \keyboard_inst|Add1~40_combout  = (\keyboard_inst|refresh [20] & (\keyboard_inst|Add1~39  $ (GND))) # (!\keyboard_inst|refresh [20] & (!\keyboard_inst|Add1~39  & VCC))
+// \keyboard_inst|Add1~41  = CARRY((\keyboard_inst|refresh [20] & !\keyboard_inst|Add1~39 ))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [20]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~39 ),
+	.combout(\keyboard_inst|Add1~40_combout ),
+	.cout(\keyboard_inst|Add1~41 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~40 .lut_mask = 16'hC30C;
+defparam \keyboard_inst|Add1~40 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N8
+cycloneive_lcell_comb \keyboard_inst|refresh~3 (
+// Equation(s):
+// \keyboard_inst|refresh~3_combout  = (!\keyboard_inst|Equal1~8_combout  & \keyboard_inst|Add1~40_combout )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Equal1~8_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Add1~40_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~3 .lut_mask = 16'h3300;
+defparam \keyboard_inst|refresh~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X3_Y67_N9
+dffeas \keyboard_inst|refresh[20] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~3_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [20]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[20] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[20] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N16
+cycloneive_lcell_comb \keyboard_inst|Add1~42 (
+// Equation(s):
+// \keyboard_inst|Add1~42_combout  = (\keyboard_inst|refresh [21] & (!\keyboard_inst|Add1~41 )) # (!\keyboard_inst|refresh [21] & ((\keyboard_inst|Add1~41 ) # (GND)))
+// \keyboard_inst|Add1~43  = CARRY((!\keyboard_inst|Add1~41 ) # (!\keyboard_inst|refresh [21]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [21]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~41 ),
+	.combout(\keyboard_inst|Add1~42_combout ),
+	.cout(\keyboard_inst|Add1~43 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~42 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~42 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N26
+cycloneive_lcell_comb \keyboard_inst|refresh~2 (
+// Equation(s):
+// \keyboard_inst|refresh~2_combout  = (\keyboard_inst|Add1~42_combout  & !\keyboard_inst|Equal1~8_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|Add1~42_combout ),
+	.datad(\keyboard_inst|Equal1~8_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~2 .lut_mask = 16'h00F0;
+defparam \keyboard_inst|refresh~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X3_Y67_N27
+dffeas \keyboard_inst|refresh[21] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~2_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [21]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[21] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[21] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N12
+cycloneive_lcell_comb \keyboard_inst|Equal1~1 (
+// Equation(s):
+// \keyboard_inst|Equal1~1_combout  = (\keyboard_inst|refresh [20] & (\keyboard_inst|refresh [18] & (\keyboard_inst|refresh [21] & !\keyboard_inst|refresh [19])))
+
+	.dataa(\keyboard_inst|refresh [20]),
+	.datab(\keyboard_inst|refresh [18]),
+	.datac(\keyboard_inst|refresh [21]),
+	.datad(\keyboard_inst|refresh [19]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~1 .lut_mask = 16'h0080;
+defparam \keyboard_inst|Equal1~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N18
+cycloneive_lcell_comb \keyboard_inst|Add1~44 (
+// Equation(s):
+// \keyboard_inst|Add1~44_combout  = (\keyboard_inst|refresh [22] & (\keyboard_inst|Add1~43  $ (GND))) # (!\keyboard_inst|refresh [22] & (!\keyboard_inst|Add1~43  & VCC))
+// \keyboard_inst|Add1~45  = CARRY((\keyboard_inst|refresh [22] & !\keyboard_inst|Add1~43 ))
+
+	.dataa(\keyboard_inst|refresh [22]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~43 ),
+	.combout(\keyboard_inst|Add1~44_combout ),
+	.cout(\keyboard_inst|Add1~45 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~44 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Add1~44 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N30
+cycloneive_lcell_comb \keyboard_inst|refresh~1 (
+// Equation(s):
+// \keyboard_inst|refresh~1_combout  = (!\keyboard_inst|Equal1~8_combout  & \keyboard_inst|Add1~44_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|Equal1~8_combout ),
+	.datad(\keyboard_inst|Add1~44_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~1 .lut_mask = 16'h0F00;
+defparam \keyboard_inst|refresh~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N31
+dffeas \keyboard_inst|refresh[22] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~1_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [22]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[22] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[22] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N20
+cycloneive_lcell_comb \keyboard_inst|Add1~46 (
+// Equation(s):
+// \keyboard_inst|Add1~46_combout  = (\keyboard_inst|refresh [23] & (!\keyboard_inst|Add1~45 )) # (!\keyboard_inst|refresh [23] & ((\keyboard_inst|Add1~45 ) # (GND)))
+// \keyboard_inst|Add1~47  = CARRY((!\keyboard_inst|Add1~45 ) # (!\keyboard_inst|refresh [23]))
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|refresh [23]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~45 ),
+	.combout(\keyboard_inst|Add1~46_combout ),
+	.cout(\keyboard_inst|Add1~47 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~46 .lut_mask = 16'h3C3F;
+defparam \keyboard_inst|Add1~46 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N28
+cycloneive_lcell_comb \keyboard_inst|refresh~0 (
+// Equation(s):
+// \keyboard_inst|refresh~0_combout  = (!\keyboard_inst|Equal1~8_combout  & \keyboard_inst|Add1~46_combout )
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Equal1~8_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|Add1~46_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|refresh~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|refresh~0 .lut_mask = 16'h3300;
+defparam \keyboard_inst|refresh~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X3_Y67_N29
+dffeas \keyboard_inst|refresh[23] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|refresh~0_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [23]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[23] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[23] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N22
+cycloneive_lcell_comb \keyboard_inst|Add1~48 (
+// Equation(s):
+// \keyboard_inst|Add1~48_combout  = (\keyboard_inst|refresh [24] & (\keyboard_inst|Add1~47  $ (GND))) # (!\keyboard_inst|refresh [24] & (!\keyboard_inst|Add1~47  & VCC))
+// \keyboard_inst|Add1~49  = CARRY((\keyboard_inst|refresh [24] & !\keyboard_inst|Add1~47 ))
+
+	.dataa(\keyboard_inst|refresh [24]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\keyboard_inst|Add1~47 ),
+	.combout(\keyboard_inst|Add1~48_combout ),
+	.cout(\keyboard_inst|Add1~49 ));
+// synopsys translate_off
+defparam \keyboard_inst|Add1~48 .lut_mask = 16'hA50A;
+defparam \keyboard_inst|Add1~48 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N23
+dffeas \keyboard_inst|refresh[24] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~48_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [24]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[24] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[24] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N24
+cycloneive_lcell_comb \keyboard_inst|Add1~50 (
+// Equation(s):
+// \keyboard_inst|Add1~50_combout  = \keyboard_inst|Add1~49  $ (\keyboard_inst|refresh [25])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|refresh [25]),
+	.cin(\keyboard_inst|Add1~49 ),
+	.combout(\keyboard_inst|Add1~50_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Add1~50 .lut_mask = 16'h0FF0;
+defparam \keyboard_inst|Add1~50 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X2_Y67_N25
+dffeas \keyboard_inst|refresh[25] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Add1~50_combout ),
+	.asdata(vcc),
+	.clrn(\Reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|refresh [25]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|refresh[25] .is_wysiwyg = "true";
+defparam \keyboard_inst|refresh[25] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N28
+cycloneive_lcell_comb \keyboard_inst|Equal1~0 (
+// Equation(s):
+// \keyboard_inst|Equal1~0_combout  = (!\keyboard_inst|refresh [24] & (!\keyboard_inst|refresh [25] & (\keyboard_inst|refresh [22] & \keyboard_inst|refresh [23])))
+
+	.dataa(\keyboard_inst|refresh [24]),
+	.datab(\keyboard_inst|refresh [25]),
+	.datac(\keyboard_inst|refresh [22]),
+	.datad(\keyboard_inst|refresh [23]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~0 .lut_mask = 16'h1000;
+defparam \keyboard_inst|Equal1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y67_N26
+cycloneive_lcell_comb \keyboard_inst|Equal1~2 (
+// Equation(s):
+// \keyboard_inst|Equal1~2_combout  = (!\keyboard_inst|refresh [16] & (!\keyboard_inst|refresh [15] & (!\keyboard_inst|refresh [17] & !\keyboard_inst|refresh [14])))
+
+	.dataa(\keyboard_inst|refresh [16]),
+	.datab(\keyboard_inst|refresh [15]),
+	.datac(\keyboard_inst|refresh [17]),
+	.datad(\keyboard_inst|refresh [14]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~2 .lut_mask = 16'h0001;
+defparam \keyboard_inst|Equal1~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N6
+cycloneive_lcell_comb \keyboard_inst|Equal1~3 (
+// Equation(s):
+// \keyboard_inst|Equal1~3_combout  = (\keyboard_inst|refresh [13] & (\keyboard_inst|refresh [10] & (!\keyboard_inst|refresh [11] & !\keyboard_inst|refresh [12])))
+
+	.dataa(\keyboard_inst|refresh [13]),
+	.datab(\keyboard_inst|refresh [10]),
+	.datac(\keyboard_inst|refresh [11]),
+	.datad(\keyboard_inst|refresh [12]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~3 .lut_mask = 16'h0008;
+defparam \keyboard_inst|Equal1~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N20
+cycloneive_lcell_comb \keyboard_inst|Equal1~4 (
+// Equation(s):
+// \keyboard_inst|Equal1~4_combout  = (\keyboard_inst|Equal1~1_combout  & (\keyboard_inst|Equal1~0_combout  & (\keyboard_inst|Equal1~2_combout  & \keyboard_inst|Equal1~3_combout )))
+
+	.dataa(\keyboard_inst|Equal1~1_combout ),
+	.datab(\keyboard_inst|Equal1~0_combout ),
+	.datac(\keyboard_inst|Equal1~2_combout ),
+	.datad(\keyboard_inst|Equal1~3_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~4 .lut_mask = 16'h8000;
+defparam \keyboard_inst|Equal1~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y67_N24
+cycloneive_lcell_comb \keyboard_inst|Equal1~8 (
+// Equation(s):
+// \keyboard_inst|Equal1~8_combout  = (\keyboard_inst|Equal1~5_combout  & (\keyboard_inst|Equal1~7_combout  & (\keyboard_inst|Equal1~6_combout  & \keyboard_inst|Equal1~4_combout )))
+
+	.dataa(\keyboard_inst|Equal1~5_combout ),
+	.datab(\keyboard_inst|Equal1~7_combout ),
+	.datac(\keyboard_inst|Equal1~6_combout ),
+	.datad(\keyboard_inst|Equal1~4_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Equal1~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Equal1~8 .lut_mask = 16'h8000;
+defparam \keyboard_inst|Equal1~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N18
+cycloneive_lcell_comb \keyboard_inst|Data[6]~2 (
+// Equation(s):
+// \keyboard_inst|Data[6]~2_combout  = (\keyboard_inst|Equal1~8_combout ) # (!\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|Data[6]~0_combout ),
+	.datad(\keyboard_inst|Equal1~8_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data[6]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data[6]~2 .lut_mask = 16'hFF0F;
+defparam \keyboard_inst|Data[6]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N13
+dffeas \keyboard_inst|Data[6] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[6] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N6
+cycloneive_lcell_comb \keyboard_inst|Data~3 (
+// Equation(s):
+// \keyboard_inst|Data~3_combout  = (\keyboard_inst|reg_B|Data_Out [7] & !\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [7]),
+	.datab(\keyboard_inst|Data[6]~0_combout ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~3 .lut_mask = 16'h2222;
+defparam \keyboard_inst|Data~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N7
+dffeas \keyboard_inst|Data[5] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[5] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N26
+cycloneive_lcell_comb \keyboard_inst|Data~5 (
+// Equation(s):
+// \keyboard_inst|Data~5_combout  = (\keyboard_inst|reg_B|Data_Out [9] & !\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [9]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|Data[6]~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~5 .lut_mask = 16'h00AA;
+defparam \keyboard_inst|Data~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N27
+dffeas \keyboard_inst|Data[7] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[7] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N24
+cycloneive_lcell_comb \keyboard_inst|Data~1 (
+// Equation(s):
+// \keyboard_inst|Data~1_combout  = (\keyboard_inst|reg_B|Data_Out [6] & !\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\keyboard_inst|reg_B|Data_Out [6]),
+	.datad(\keyboard_inst|Data[6]~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~1 .lut_mask = 16'h00F0;
+defparam \keyboard_inst|Data~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N25
+dffeas \keyboard_inst|Data[4] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[4] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N20
+cycloneive_lcell_comb \h1|WideOr6~0 (
+// Equation(s):
+// \h1|WideOr6~0_combout  = (\keyboard_inst|Data [6] & (!\keyboard_inst|Data [5] & (\keyboard_inst|Data [7] $ (!\keyboard_inst|Data [4])))) # (!\keyboard_inst|Data [6] & (\keyboard_inst|Data [4] & (\keyboard_inst|Data [5] $ (!\keyboard_inst|Data [7]))))
+
+	.dataa(\keyboard_inst|Data [6]),
+	.datab(\keyboard_inst|Data [5]),
+	.datac(\keyboard_inst|Data [7]),
+	.datad(\keyboard_inst|Data [4]),
+	.cin(gnd),
+	.combout(\h1|WideOr6~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h1|WideOr6~0 .lut_mask = 16'h6102;
+defparam \h1|WideOr6~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N14
+cycloneive_lcell_comb \h1|WideOr5~0 (
+// Equation(s):
+// \h1|WideOr5~0_combout  = (\keyboard_inst|Data [5] & ((\keyboard_inst|Data [4] & ((\keyboard_inst|Data [7]))) # (!\keyboard_inst|Data [4] & (\keyboard_inst|Data [6])))) # (!\keyboard_inst|Data [5] & (\keyboard_inst|Data [6] & (\keyboard_inst|Data [7] $ 
+// (\keyboard_inst|Data [4]))))
+
+	.dataa(\keyboard_inst|Data [6]),
+	.datab(\keyboard_inst|Data [5]),
+	.datac(\keyboard_inst|Data [7]),
+	.datad(\keyboard_inst|Data [4]),
+	.cin(gnd),
+	.combout(\h1|WideOr5~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h1|WideOr5~0 .lut_mask = 16'hC2A8;
+defparam \h1|WideOr5~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N0
+cycloneive_lcell_comb \h1|WideOr4~0 (
+// Equation(s):
+// \h1|WideOr4~0_combout  = (\keyboard_inst|Data [6] & (\keyboard_inst|Data [7] & ((\keyboard_inst|Data [5]) # (!\keyboard_inst|Data [4])))) # (!\keyboard_inst|Data [6] & (\keyboard_inst|Data [5] & (!\keyboard_inst|Data [7] & !\keyboard_inst|Data [4])))
+
+	.dataa(\keyboard_inst|Data [5]),
+	.datab(\keyboard_inst|Data [6]),
+	.datac(\keyboard_inst|Data [7]),
+	.datad(\keyboard_inst|Data [4]),
+	.cin(gnd),
+	.combout(\h1|WideOr4~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h1|WideOr4~0 .lut_mask = 16'h80C2;
+defparam \h1|WideOr4~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N10
+cycloneive_lcell_comb \h1|WideOr3~0 (
+// Equation(s):
+// \h1|WideOr3~0_combout  = (\keyboard_inst|Data [5] & ((\keyboard_inst|Data [6] & ((\keyboard_inst|Data [4]))) # (!\keyboard_inst|Data [6] & (\keyboard_inst|Data [7] & !\keyboard_inst|Data [4])))) # (!\keyboard_inst|Data [5] & (!\keyboard_inst|Data [7] & 
+// (\keyboard_inst|Data [6] $ (\keyboard_inst|Data [4]))))
+
+	.dataa(\keyboard_inst|Data [5]),
+	.datab(\keyboard_inst|Data [6]),
+	.datac(\keyboard_inst|Data [7]),
+	.datad(\keyboard_inst|Data [4]),
+	.cin(gnd),
+	.combout(\h1|WideOr3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h1|WideOr3~0 .lut_mask = 16'h8924;
+defparam \h1|WideOr3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N4
+cycloneive_lcell_comb \h1|WideOr2~0 (
+// Equation(s):
+// \h1|WideOr2~0_combout  = (\keyboard_inst|Data [5] & (((!\keyboard_inst|Data [7] & \keyboard_inst|Data [4])))) # (!\keyboard_inst|Data [5] & ((\keyboard_inst|Data [6] & (!\keyboard_inst|Data [7])) # (!\keyboard_inst|Data [6] & ((\keyboard_inst|Data 
+// [4])))))
+
+	.dataa(\keyboard_inst|Data [5]),
+	.datab(\keyboard_inst|Data [6]),
+	.datac(\keyboard_inst|Data [7]),
+	.datad(\keyboard_inst|Data [4]),
+	.cin(gnd),
+	.combout(\h1|WideOr2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h1|WideOr2~0 .lut_mask = 16'h1F04;
+defparam \h1|WideOr2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y67_N16
+cycloneive_lcell_comb \h1|WideOr1~0 (
+// Equation(s):
+// \h1|WideOr1~0_combout  = (\keyboard_inst|Data [6] & (\keyboard_inst|Data [4] & (\keyboard_inst|Data [5] $ (\keyboard_inst|Data [7])))) # (!\keyboard_inst|Data [6] & (!\keyboard_inst|Data [7] & ((\keyboard_inst|Data [5]) # (\keyboard_inst|Data [4]))))
+
+	.dataa(\keyboard_inst|Data [6]),
+	.datab(\keyboard_inst|Data [5]),
+	.datac(\keyboard_inst|Data [7]),
+	.datad(\keyboard_inst|Data [4]),
+	.cin(gnd),
+	.combout(\h1|WideOr1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h1|WideOr1~0 .lut_mask = 16'h2D04;
+defparam \h1|WideOr1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N22
+cycloneive_lcell_comb \h1|WideOr0~0 (
+// Equation(s):
+// \h1|WideOr0~0_combout  = (\keyboard_inst|Data [4] & ((\keyboard_inst|Data [7]) # (\keyboard_inst|Data [5] $ (\keyboard_inst|Data [6])))) # (!\keyboard_inst|Data [4] & ((\keyboard_inst|Data [5]) # (\keyboard_inst|Data [6] $ (\keyboard_inst|Data [7]))))
+
+	.dataa(\keyboard_inst|Data [5]),
+	.datab(\keyboard_inst|Data [6]),
+	.datac(\keyboard_inst|Data [7]),
+	.datad(\keyboard_inst|Data [4]),
+	.cin(gnd),
+	.combout(\h1|WideOr0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h1|WideOr0~0 .lut_mask = 16'hF6BE;
+defparam \h1|WideOr0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N2
+cycloneive_lcell_comb \keyboard_inst|Data~9 (
+// Equation(s):
+// \keyboard_inst|Data~9_combout  = (!\keyboard_inst|Data[6]~0_combout  & \keyboard_inst|reg_B|Data_Out [5])
+
+	.dataa(gnd),
+	.datab(\keyboard_inst|Data[6]~0_combout ),
+	.datac(gnd),
+	.datad(\keyboard_inst|reg_B|Data_Out [5]),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~9 .lut_mask = 16'h3300;
+defparam \keyboard_inst|Data~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N3
+dffeas \keyboard_inst|Data[3] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~9_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[3] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N30
+cycloneive_lcell_comb \keyboard_inst|Data~7 (
+// Equation(s):
+// \keyboard_inst|Data~7_combout  = (\keyboard_inst|reg_B|Data_Out [3] & !\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|Data[6]~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~7 .lut_mask = 16'h00AA;
+defparam \keyboard_inst|Data~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N31
+dffeas \keyboard_inst|Data[1] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~7_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[1] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N20
+cycloneive_lcell_comb \keyboard_inst|Data~8 (
+// Equation(s):
+// \keyboard_inst|Data~8_combout  = (\keyboard_inst|reg_B|Data_Out [4] & !\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [4]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|Data[6]~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~8 .lut_mask = 16'h00AA;
+defparam \keyboard_inst|Data~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N21
+dffeas \keyboard_inst|Data[2] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[2] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y67_N16
+cycloneive_lcell_comb \keyboard_inst|Data~6 (
+// Equation(s):
+// \keyboard_inst|Data~6_combout  = (\keyboard_inst|reg_B|Data_Out [2] & !\keyboard_inst|Data[6]~0_combout )
+
+	.dataa(\keyboard_inst|reg_B|Data_Out [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\keyboard_inst|Data[6]~0_combout ),
+	.cin(gnd),
+	.combout(\keyboard_inst|Data~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \keyboard_inst|Data~6 .lut_mask = 16'h00AA;
+defparam \keyboard_inst|Data~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X6_Y67_N17
+dffeas \keyboard_inst|Data[0] (
+	.clk(\Clk~inputclkctrl_outclk ),
+	.d(\keyboard_inst|Data~6_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_inst|Data[6]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_inst|Data [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_inst|Data[0] .is_wysiwyg = "true";
+defparam \keyboard_inst|Data[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X66_Y1_N12
+cycloneive_lcell_comb \h2|WideOr6~0 (
+// Equation(s):
+// \h2|WideOr6~0_combout  = (\keyboard_inst|Data [3] & (\keyboard_inst|Data [0] & (\keyboard_inst|Data [1] $ (\keyboard_inst|Data [2])))) # (!\keyboard_inst|Data [3] & (!\keyboard_inst|Data [1] & (\keyboard_inst|Data [2] $ (\keyboard_inst|Data [0]))))
+
+	.dataa(\keyboard_inst|Data [3]),
+	.datab(\keyboard_inst|Data [1]),
+	.datac(\keyboard_inst|Data [2]),
+	.datad(\keyboard_inst|Data [0]),
+	.cin(gnd),
+	.combout(\h2|WideOr6~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h2|WideOr6~0 .lut_mask = 16'h2910;
+defparam \h2|WideOr6~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X66_Y1_N30
+cycloneive_lcell_comb \h2|WideOr5~0 (
+// Equation(s):
+// \h2|WideOr5~0_combout  = (\keyboard_inst|Data [3] & ((\keyboard_inst|Data [0] & (\keyboard_inst|Data [1])) # (!\keyboard_inst|Data [0] & ((\keyboard_inst|Data [2]))))) # (!\keyboard_inst|Data [3] & (\keyboard_inst|Data [2] & (\keyboard_inst|Data [1] $ 
+// (\keyboard_inst|Data [0]))))
+
+	.dataa(\keyboard_inst|Data [3]),
+	.datab(\keyboard_inst|Data [1]),
+	.datac(\keyboard_inst|Data [2]),
+	.datad(\keyboard_inst|Data [0]),
+	.cin(gnd),
+	.combout(\h2|WideOr5~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h2|WideOr5~0 .lut_mask = 16'h98E0;
+defparam \h2|WideOr5~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X66_Y1_N28
+cycloneive_lcell_comb \h2|WideOr4~0 (
+// Equation(s):
+// \h2|WideOr4~0_combout  = (\keyboard_inst|Data [3] & (\keyboard_inst|Data [2] & ((\keyboard_inst|Data [1]) # (!\keyboard_inst|Data [0])))) # (!\keyboard_inst|Data [3] & (\keyboard_inst|Data [1] & (!\keyboard_inst|Data [2] & !\keyboard_inst|Data [0])))
+
+	.dataa(\keyboard_inst|Data [3]),
+	.datab(\keyboard_inst|Data [1]),
+	.datac(\keyboard_inst|Data [2]),
+	.datad(\keyboard_inst|Data [0]),
+	.cin(gnd),
+	.combout(\h2|WideOr4~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h2|WideOr4~0 .lut_mask = 16'h80A4;
+defparam \h2|WideOr4~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X66_Y1_N10
+cycloneive_lcell_comb \h2|WideOr3~0 (
+// Equation(s):
+// \h2|WideOr3~0_combout  = (\keyboard_inst|Data [1] & ((\keyboard_inst|Data [2] & ((\keyboard_inst|Data [0]))) # (!\keyboard_inst|Data [2] & (\keyboard_inst|Data [3] & !\keyboard_inst|Data [0])))) # (!\keyboard_inst|Data [1] & (!\keyboard_inst|Data [3] & 
+// (\keyboard_inst|Data [2] $ (\keyboard_inst|Data [0]))))
+
+	.dataa(\keyboard_inst|Data [3]),
+	.datab(\keyboard_inst|Data [1]),
+	.datac(\keyboard_inst|Data [2]),
+	.datad(\keyboard_inst|Data [0]),
+	.cin(gnd),
+	.combout(\h2|WideOr3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h2|WideOr3~0 .lut_mask = 16'hC118;
+defparam \h2|WideOr3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X66_Y1_N4
+cycloneive_lcell_comb \h2|WideOr2~0 (
+// Equation(s):
+// \h2|WideOr2~0_combout  = (\keyboard_inst|Data [1] & (!\keyboard_inst|Data [3] & ((\keyboard_inst|Data [0])))) # (!\keyboard_inst|Data [1] & ((\keyboard_inst|Data [2] & (!\keyboard_inst|Data [3])) # (!\keyboard_inst|Data [2] & ((\keyboard_inst|Data 
+// [0])))))
+
+	.dataa(\keyboard_inst|Data [3]),
+	.datab(\keyboard_inst|Data [1]),
+	.datac(\keyboard_inst|Data [2]),
+	.datad(\keyboard_inst|Data [0]),
+	.cin(gnd),
+	.combout(\h2|WideOr2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h2|WideOr2~0 .lut_mask = 16'h5710;
+defparam \h2|WideOr2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X66_Y1_N26
+cycloneive_lcell_comb \h2|WideOr1~0 (
+// Equation(s):
+// \h2|WideOr1~0_combout  = (\keyboard_inst|Data [1] & (!\keyboard_inst|Data [3] & ((\keyboard_inst|Data [0]) # (!\keyboard_inst|Data [2])))) # (!\keyboard_inst|Data [1] & (\keyboard_inst|Data [0] & (\keyboard_inst|Data [3] $ (!\keyboard_inst|Data [2]))))
+
+	.dataa(\keyboard_inst|Data [3]),
+	.datab(\keyboard_inst|Data [1]),
+	.datac(\keyboard_inst|Data [2]),
+	.datad(\keyboard_inst|Data [0]),
+	.cin(gnd),
+	.combout(\h2|WideOr1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h2|WideOr1~0 .lut_mask = 16'h6504;
+defparam \h2|WideOr1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X66_Y1_N20
+cycloneive_lcell_comb \h2|WideOr0~0 (
+// Equation(s):
+// \h2|WideOr0~0_combout  = (\keyboard_inst|Data [0] & ((\keyboard_inst|Data [3]) # (\keyboard_inst|Data [1] $ (\keyboard_inst|Data [2])))) # (!\keyboard_inst|Data [0] & ((\keyboard_inst|Data [1]) # (\keyboard_inst|Data [3] $ (\keyboard_inst|Data [2]))))
+
+	.dataa(\keyboard_inst|Data [3]),
+	.datab(\keyboard_inst|Data [1]),
+	.datac(\keyboard_inst|Data [2]),
+	.datad(\keyboard_inst|Data [0]),
+	.cin(gnd),
+	.combout(\h2|WideOr0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \h2|WideOr0~0 .lut_mask = 16'hBEDE;
+defparam \h2|WideOr0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign LDEG8 = \LDEG8~output_o ;
+
+assign HU[0] = \HU[0]~output_o ;
+
+assign HU[1] = \HU[1]~output_o ;
+
+assign HU[2] = \HU[2]~output_o ;
+
+assign HU[3] = \HU[3]~output_o ;
+
+assign HU[4] = \HU[4]~output_o ;
+
+assign HU[5] = \HU[5]~output_o ;
+
+assign HU[6] = \HU[6]~output_o ;
+
+assign HL[0] = \HL[0]~output_o ;
+
+assign HL[1] = \HL[1]~output_o ;
+
+assign HL[2] = \HL[2]~output_o ;
+
+assign HL[3] = \HL[3]~output_o ;
+
+assign HL[4] = \HL[4]~output_o ;
+
+assign HL[5] = \HL[5]~output_o ;
+
+assign HL[6] = \HL[6]~output_o ;
+
+endmodule
